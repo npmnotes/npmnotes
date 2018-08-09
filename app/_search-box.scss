@@ -1,0 +1,17 @@
+@import 'color';
+
+#search-box {
+    padding: .2em;
+    border: 1px solid $color-border;
+    border-radius: .2em;
+    position: sticky;
+    top: 0;
+    margin-bottom: 2em;
+    background-color: white;
+    input {
+        margin: 0 .2em;
+        border: none;
+        outline: none;
+        font-size: 1.2em;
+    }
+}

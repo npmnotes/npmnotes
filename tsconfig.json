@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "target": "es2017",
+        "sourceMap": true,
+        "module": "commonjs",
+        "jsx": "react",
+        "jsxFactory": "h",
+        "strict": true,
+        "esModuleInterop": true
+    }
+}

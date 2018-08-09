@@ -1,0 +1,6 @@
+node_modules
+*.js
+*.css
+*.map
+!rollup.config.js
+!dist

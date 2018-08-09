@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="shortcut icon"type="image/x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAA9GAAAPRgFoUyCCAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAFpQTFRF////2FlKykY4wDorykg4zsmuz8qv11pK2dS92nFh23dn29fB3YNz46iY46ub4+DM5ODN5eLP5r+v58Ky5+PR6OTS6ebU6ebV6ufW6+fX6+jX7ObW7OnZ7erabqlTygAAAAN0Uk5TAEh8m2U8xAAAAGlJREFUWIXt0LcNwDAMBVE655zT/mu6sBsCBCw1tIp/A7ziiJ784C1MzPKIBwCAo0B/yFWmwHDJ1arAmPJWW6CJeLMtMBW8Xf3B1vFO9QdtzFvUH/wL5KVcZgp8BQAAAAAAAAAAAMBl4AYolF9xk2tqiAAAAABJRU5ErkJggg==" />
+<style>@import url("https://fonts.googleapis.com/css?family=Work+Sans");
+@import url("https://use.fontawesome.com/releases/v5.2.0/css/all.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-tomorrow.min.css");
+#search-box {
+  padding: .2em;
+  border: 1px solid #D8DEE9;
+  border-radius: .2em;
+  position: sticky;
+  top: 0;
+  margin-bottom: 2em;
+  background-color: white; }
+  #search-box input {
+    margin: 0 .2em;
+    border: none;
+    outline: none;
+    font-size: 1.2em; }
+
+.note-preview {
+  transition: opacity .5s;
+  padding: 1em 0;
+  line-height: 1.5em;
+  opacity: .5;
+  border: .2em solid transparent; }
+
+.note-view {
+  padding: 10vh 0;
+  max-width: 40em; }
+
+.note-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #1B2B34; }
+
+.note-date {
+  font-size: .9em;
+  color: #65737E; }
+
+.note-author {
+  font-size: .8em;
+  color: #A7ADBA; }
+
+[data-selected=true] {
+  border-right-color: #D8DEE9;
+  opacity: 1; }
+
+.flex {
+  display: flex; }
+
+.flex-grow {
+  flex-grow: 1; }
+
+.flex-align-bottom {
+  align-self: flex-end; }
+
+.flex-align-center {
+  align-self: center; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 1em;
+  table-layout: fixed;
+  width: 100%; }
+
+table,
+th {
+  text-align: left; }
+
+th {
+  padding: .5em 0;
+  background-color: #d4d4d4; }
+
+tr:nth-child(even) {
+  background-color: whitesmoke; }
+
+td,
+th {
+  padding: .5em;
+  border: 1px solid #cbcbcb; }
+
+td,
+th {
+  border-top: none;
+  border-bottom: none; }
+
+* {
+  box-sizing: border-box; }
+
+html,
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0; }
+
+body {
+  color: #343D46;
+  font-family: 'Work Sans', sans-serif; }
+
+html,
+body,
+#root,
+#main {
+  height: 100%;
+  overflow: hidden; }
+
+#view {
+  padding: 1em; }
+
+::-webkit-scrollbar {
+  display: none; }
+
+#left,
+#right-root {
+  overflow-y: scroll; }
+
+#left {
+  padding: 1em;
+  min-width: 25em; }
+
+#right-root {
+  padding: 3em; }
+
+#dummy-input {
+  display: flex;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border: none; }
+
+table,
+img,
+pre {
+  box-shadow: 0 0 1em #666;
+  max-width: 100%;
+  margin: 2em 0; }
+</style>
+<script>const data = [{"title":"About","author":"Gilad Kutiel\n","path":"notes/About.md","src":"# About\n\nnpmnotes is a command line note organizer.\n\n![](npmnotes.gif)\n\n## How it works?\n\nYou take your notes with your favorite text editor (currently only .md files are supported) and synchronize/collaborate them\nwith your favorite synchronization service (a git repository is a good choice).\nnpmnotes will build a web app containing all your notes (just like the one you are at right now) that you can make public or use locally.\n\n","html":"<h1>About</h1>\n<p>npmnotes is a command line note organizer.</p>\n<p><img src=\"npmnotes.gif\" alt=\"\"></p>\n<h2>How it works?</h2>\n<p>You take your notes with your favorite text editor (currently only .md files are supported) and synchronize/collaborate them\nwith your favorite synchronization service (a git repository is a good choice).\nnpmnotes will build a web app containing all your notes (just like the one you are at right now) that you can make public or use locally.</p>\n","time":1534234356707,"selected":false},{"title":"Installation","author":"Gilad Kutiel\n","path":"notes/Installation.md","src":"# Installation\n\nMake sure you have [Node.js](https://nodejs.org/en/) installed, then just install it globally with npm:\n\n```bash\nnpm i -g npmnotes\n```\n\n","html":"<h1>Installation</h1>\n<p>Make sure you have <a href=\"https://nodejs.org/en/\">Node.js</a> installed, then just install it globally with npm:</p>\n<pre class='language-bash'>npm i -g npmnotes\n</pre>\n","time":1534234265983,"selected":false},{"title":"Usage","author":"Gilad Kutiel\n","path":"notes/Usage.md","src":"# Usage\n\nYou write all your notes under some folder (and sub-folders) of your choice, \nthen you run np on this folder and specify an output folder. \nYou can also run npmnotes in watch mode.\n\n```plain\n  Usage: npmnotes [options] <source folder> <output folder>                 \n                                                                            \n  Options:                                                                  \n                                                                            \n    -w --watch  watch mode - live update every time you write or edit a note\n    -t --title  the title of the generated page                             \n    -h, --help  output usage information                                    \n```","html":"<h1>Usage</h1>\n<p>You write all your notes under some folder (and sub-folders) of your choice,\nthen you run np on this folder and specify an output folder.\nYou can also run npmnotes in watch mode.</p>\n<pre class='language-plain'>  Usage: npmnotes [options] &lt;source folder> &lt;output folder>                 \n                                                                            \n  Options:                                                                  \n                                                                            \n    -w --watch  watch mode - live update every time you write or edit a note\n    -t --title  the title of the generated page                             \n    -h, --help  output usage information                                    \n</pre>\n","time":1534234265275,"selected":false},{"title":"Shortcuts","author":"Gilad Kutiel\n","path":"notes/Shortcuts.md","src":"# Keyboard Shortcuts\n\nYou can try the following keyboard shortcuts right here.\n\n| Key       | Action                |\n|-----------|-----------------------|\n| `/`       | Start searching       |\n| `Enter`   | Clear search results  |\n| `ESC`     | Exit the search box   |\n| `j`       | Next note             |\n| `k`       | Previous Note         |","html":"<h1>Keyboard Shortcuts</h1>\n<p>You can try the following keyboard shortcuts right here.</p>\n<table>\n<thead>\n<tr>\n<th>Key</th>\n<th>Action</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>/</code></td>\n<td>Start searching</td>\n</tr>\n<tr>\n<td><code>Enter</code></td>\n<td>Clear search results</td>\n</tr>\n<tr>\n<td><code>ESC</code></td>\n<td>Exit the search box</td>\n</tr>\n<tr>\n<td><code>j</code></td>\n<td>Next note</td>\n</tr>\n<tr>\n<td><code>k</code></td>\n<td>Previous Note</td>\n</tr>\n</tbody>\n</table>\n","time":1534234264587,"selected":false},{"title":"Work in Progress","author":"","path":"notes/Work in Progress.md","src":"# a Work in Progress\n\nThis is a very early stage, many more planned features are in the process queue.\nIf you have a feature idea or any suggestion please feel free to [tell me about it](https://github.com/npmnotes/npmnotes/issues).","html":"<h1>a Work in Progress</h1>\n<p>This is a very early stage, many more planned features are in the process queue.\nIf you have a feature idea or any suggestion please feel free to <a href=\"https://github.com/npmnotes/npmnotes/issues\">tell me about it</a>.</p>\n","time":1534234263715,"selected":false}]</script>
+<script type="module">var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+function unwrapExports (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+}
+
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
+
+var VNode = function VNode() {};
+
+var options = {};
+
+var stack = [];
+
+var EMPTY_CHILDREN = [];
+
+function h(nodeName, attributes) {
+	var children = EMPTY_CHILDREN,
+	    lastSimple,
+	    child,
+	    simple,
+	    i;
+	for (i = arguments.length; i-- > 2;) {
+		stack.push(arguments[i]);
+	}
+	if (attributes && attributes.children != null) {
+		if (!stack.length) stack.push(attributes.children);
+		delete attributes.children;
+	}
+	while (stack.length) {
+		if ((child = stack.pop()) && child.pop !== undefined) {
+			for (i = child.length; i--;) {
+				stack.push(child[i]);
+			}
+		} else {
+			if (typeof child === 'boolean') child = null;
+
+			if (simple = typeof nodeName !== 'function') {
+				if (child == null) child = '';else if (typeof child === 'number') child = String(child);else if (typeof child !== 'string') simple = false;
+			}
+
+			if (simple && lastSimple) {
+				children[children.length - 1] += child;
+			} else if (children === EMPTY_CHILDREN) {
+				children = [child];
+			} else {
+				children.push(child);
+			}
+
+			lastSimple = simple;
+		}
+	}
+
+	var p = new VNode();
+	p.nodeName = nodeName;
+	p.children = children;
+	p.attributes = attributes == null ? undefined : attributes;
+	p.key = attributes == null ? undefined : attributes.key;
+
+	return p;
+}
+
+function extend(obj, props) {
+  for (var i in props) {
+    obj[i] = props[i];
+  }return obj;
+}
+
+var defer = typeof Promise == 'function' ? Promise.resolve().then.bind(Promise.resolve()) : setTimeout;
+
+function cloneElement(vnode, props) {
+  return h(vnode.nodeName, extend(extend({}, vnode.attributes), props), arguments.length > 2 ? [].slice.call(arguments, 2) : vnode.children);
+}
+
+var IS_NON_DIMENSIONAL = /acit|ex(?:s|g|n|p|$)|rph|ows|mnc|ntw|ine[ch]|zoo|^ord/i;
+
+var items = [];
+
+function enqueueRender(component) {
+	if (!component._dirty && (component._dirty = true) && items.push(component) == 1) {
+		(defer)(rerender);
+	}
+}
+
+function rerender() {
+	var p,
+	    list = items;
+	items = [];
+	while (p = list.pop()) {
+		if (p._dirty) renderComponent(p);
+	}
+}
+
+function isSameNodeType(node, vnode, hydrating) {
+	if (typeof vnode === 'string' || typeof vnode === 'number') {
+		return node.splitText !== undefined;
+	}
+	if (typeof vnode.nodeName === 'string') {
+		return !node._componentConstructor && isNamedNode(node, vnode.nodeName);
+	}
+	return hydrating || node._componentConstructor === vnode.nodeName;
+}
+
+function isNamedNode(node, nodeName) {
+	return node.normalizedNodeName === nodeName || node.nodeName.toLowerCase() === nodeName.toLowerCase();
+}
+
+function getNodeProps(vnode) {
+	var props = extend({}, vnode.attributes);
+	props.children = vnode.children;
+
+	var defaultProps = vnode.nodeName.defaultProps;
+	if (defaultProps !== undefined) {
+		for (var i in defaultProps) {
+			if (props[i] === undefined) {
+				props[i] = defaultProps[i];
+			}
+		}
+	}
+
+	return props;
+}
+
+function createNode(nodeName, isSvg) {
+	var node = isSvg ? document.createElementNS('http://www.w3.org/2000/svg', nodeName) : document.createElement(nodeName);
+	node.normalizedNodeName = nodeName;
+	return node;
+}
+
+function removeNode(node) {
+	var parentNode = node.parentNode;
+	if (parentNode) parentNode.removeChild(node);
+}
+
+function setAccessor(node, name, old, value, isSvg) {
+	if (name === 'className') name = 'class';
+
+	if (name === 'key') ; else if (name === 'ref') {
+		if (old) old(null);
+		if (value) value(node);
+	} else if (name === 'class' && !isSvg) {
+		node.className = value || '';
+	} else if (name === 'style') {
+		if (!value || typeof value === 'string' || typeof old === 'string') {
+			node.style.cssText = value || '';
+		}
+		if (value && typeof value === 'object') {
+			if (typeof old !== 'string') {
+				for (var i in old) {
+					if (!(i in value)) node.style[i] = '';
+				}
+			}
+			for (var i in value) {
+				node.style[i] = typeof value[i] === 'number' && IS_NON_DIMENSIONAL.test(i) === false ? value[i] + 'px' : value[i];
+			}
+		}
+	} else if (name === 'dangerouslySetInnerHTML') {
+		if (value) node.innerHTML = value.__html || '';
+	} else if (name[0] == 'o' && name[1] == 'n') {
+		var useCapture = name !== (name = name.replace(/Capture$/, ''));
+		name = name.toLowerCase().substring(2);
+		if (value) {
+			if (!old) node.addEventListener(name, eventProxy, useCapture);
+		} else {
+			node.removeEventListener(name, eventProxy, useCapture);
+		}
+		(node._listeners || (node._listeners = {}))[name] = value;
+	} else if (name !== 'list' && name !== 'type' && !isSvg && name in node) {
+		try {
+			node[name] = value == null ? '' : value;
+		} catch (e) {}
+		if ((value == null || value === false) && name != 'spellcheck') node.removeAttribute(name);
+	} else {
+		var ns = isSvg && name !== (name = name.replace(/^xlink:?/, ''));
+
+		if (value == null || value === false) {
+			if (ns) node.removeAttributeNS('http://www.w3.org/1999/xlink', name.toLowerCase());else node.removeAttribute(name);
+		} else if (typeof value !== 'function') {
+			if (ns) node.setAttributeNS('http://www.w3.org/1999/xlink', name.toLowerCase(), value);else node.setAttribute(name, value);
+		}
+	}
+}
+
+function eventProxy(e) {
+	return this._listeners[e.type](e);
+}
+
+var mounts = [];
+
+var diffLevel = 0;
+
+var isSvgMode = false;
+
+var hydrating = false;
+
+function flushMounts() {
+	var c;
+	while (c = mounts.pop()) {
+		if (c.componentDidMount) c.componentDidMount();
+	}
+}
+
+function diff(dom, vnode, context, mountAll, parent, componentRoot) {
+	if (!diffLevel++) {
+		isSvgMode = parent != null && parent.ownerSVGElement !== undefined;
+
+		hydrating = dom != null && !('__preactattr_' in dom);
+	}
+
+	var ret = idiff(dom, vnode, context, mountAll, componentRoot);
+
+	if (parent && ret.parentNode !== parent) parent.appendChild(ret);
+
+	if (! --diffLevel) {
+		hydrating = false;
+
+		if (!componentRoot) flushMounts();
+	}
+
+	return ret;
+}
+
+function idiff(dom, vnode, context, mountAll, componentRoot) {
+	var out = dom,
+	    prevSvgMode = isSvgMode;
+
+	if (vnode == null || typeof vnode === 'boolean') vnode = '';
+
+	if (typeof vnode === 'string' || typeof vnode === 'number') {
+		if (dom && dom.splitText !== undefined && dom.parentNode && (!dom._component || componentRoot)) {
+			if (dom.nodeValue != vnode) {
+				dom.nodeValue = vnode;
+			}
+		} else {
+			out = document.createTextNode(vnode);
+			if (dom) {
+				if (dom.parentNode) dom.parentNode.replaceChild(out, dom);
+				recollectNodeTree(dom, true);
+			}
+		}
+
+		out['__preactattr_'] = true;
+
+		return out;
+	}
+
+	var vnodeName = vnode.nodeName;
+	if (typeof vnodeName === 'function') {
+		return buildComponentFromVNode(dom, vnode, context, mountAll);
+	}
+
+	isSvgMode = vnodeName === 'svg' ? true : vnodeName === 'foreignObject' ? false : isSvgMode;
+
+	vnodeName = String(vnodeName);
+	if (!dom || !isNamedNode(dom, vnodeName)) {
+		out = createNode(vnodeName, isSvgMode);
+
+		if (dom) {
+			while (dom.firstChild) {
+				out.appendChild(dom.firstChild);
+			}
+			if (dom.parentNode) dom.parentNode.replaceChild(out, dom);
+
+			recollectNodeTree(dom, true);
+		}
+	}
+
+	var fc = out.firstChild,
+	    props = out['__preactattr_'],
+	    vchildren = vnode.children;
+
+	if (props == null) {
+		props = out['__preactattr_'] = {};
+		for (var a = out.attributes, i = a.length; i--;) {
+			props[a[i].name] = a[i].value;
+		}
+	}
+
+	if (!hydrating && vchildren && vchildren.length === 1 && typeof vchildren[0] === 'string' && fc != null && fc.splitText !== undefined && fc.nextSibling == null) {
+		if (fc.nodeValue != vchildren[0]) {
+			fc.nodeValue = vchildren[0];
+		}
+	} else if (vchildren && vchildren.length || fc != null) {
+			innerDiffNode(out, vchildren, context, mountAll, hydrating || props.dangerouslySetInnerHTML != null);
+		}
+
+	diffAttributes(out, vnode.attributes, props);
+
+	isSvgMode = prevSvgMode;
+
+	return out;
+}
+
+function innerDiffNode(dom, vchildren, context, mountAll, isHydrating) {
+	var originalChildren = dom.childNodes,
+	    children = [],
+	    keyed = {},
+	    keyedLen = 0,
+	    min = 0,
+	    len = originalChildren.length,
+	    childrenLen = 0,
+	    vlen = vchildren ? vchildren.length : 0,
+	    j,
+	    c,
+	    f,
+	    vchild,
+	    child;
+
+	if (len !== 0) {
+		for (var i = 0; i < len; i++) {
+			var _child = originalChildren[i],
+			    props = _child['__preactattr_'],
+			    key = vlen && props ? _child._component ? _child._component.__key : props.key : null;
+			if (key != null) {
+				keyedLen++;
+				keyed[key] = _child;
+			} else if (props || (_child.splitText !== undefined ? isHydrating ? _child.nodeValue.trim() : true : isHydrating)) {
+				children[childrenLen++] = _child;
+			}
+		}
+	}
+
+	if (vlen !== 0) {
+		for (var i = 0; i < vlen; i++) {
+			vchild = vchildren[i];
+			child = null;
+
+			var key = vchild.key;
+			if (key != null) {
+				if (keyedLen && keyed[key] !== undefined) {
+					child = keyed[key];
+					keyed[key] = undefined;
+					keyedLen--;
+				}
+			} else if (min < childrenLen) {
+					for (j = min; j < childrenLen; j++) {
+						if (children[j] !== undefined && isSameNodeType(c = children[j], vchild, isHydrating)) {
+							child = c;
+							children[j] = undefined;
+							if (j === childrenLen - 1) childrenLen--;
+							if (j === min) min++;
+							break;
+						}
+					}
+				}
+
+			child = idiff(child, vchild, context, mountAll);
+
+			f = originalChildren[i];
+			if (child && child !== dom && child !== f) {
+				if (f == null) {
+					dom.appendChild(child);
+				} else if (child === f.nextSibling) {
+					removeNode(f);
+				} else {
+					dom.insertBefore(child, f);
+				}
+			}
+		}
+	}
+
+	if (keyedLen) {
+		for (var i in keyed) {
+			if (keyed[i] !== undefined) recollectNodeTree(keyed[i], false);
+		}
+	}
+
+	while (min <= childrenLen) {
+		if ((child = children[childrenLen--]) !== undefined) recollectNodeTree(child, false);
+	}
+}
+
+function recollectNodeTree(node, unmountOnly) {
+	var component = node._component;
+	if (component) {
+		unmountComponent(component);
+	} else {
+		if (node['__preactattr_'] != null && node['__preactattr_'].ref) node['__preactattr_'].ref(null);
+
+		if (unmountOnly === false || node['__preactattr_'] == null) {
+			removeNode(node);
+		}
+
+		removeChildren(node);
+	}
+}
+
+function removeChildren(node) {
+	node = node.lastChild;
+	while (node) {
+		var next = node.previousSibling;
+		recollectNodeTree(node, true);
+		node = next;
+	}
+}
+
+function diffAttributes(dom, attrs, old) {
+	var name;
+
+	for (name in old) {
+		if (!(attrs && attrs[name] != null) && old[name] != null) {
+			setAccessor(dom, name, old[name], old[name] = undefined, isSvgMode);
+		}
+	}
+
+	for (name in attrs) {
+		if (name !== 'children' && name !== 'innerHTML' && (!(name in old) || attrs[name] !== (name === 'value' || name === 'checked' ? dom[name] : old[name]))) {
+			setAccessor(dom, name, old[name], old[name] = attrs[name], isSvgMode);
+		}
+	}
+}
+
+var recyclerComponents = [];
+
+function createComponent(Ctor, props, context) {
+	var inst,
+	    i = recyclerComponents.length;
+
+	if (Ctor.prototype && Ctor.prototype.render) {
+		inst = new Ctor(props, context);
+		Component.call(inst, props, context);
+	} else {
+		inst = new Component(props, context);
+		inst.constructor = Ctor;
+		inst.render = doRender;
+	}
+
+	while (i--) {
+		if (recyclerComponents[i].constructor === Ctor) {
+			inst.nextBase = recyclerComponents[i].nextBase;
+			recyclerComponents.splice(i, 1);
+			return inst;
+		}
+	}
+
+	return inst;
+}
+
+function doRender(props, state, context) {
+	return this.constructor(props, context);
+}
+
+function setComponentProps(component, props, renderMode, context, mountAll) {
+	if (component._disable) return;
+	component._disable = true;
+
+	component.__ref = props.ref;
+	component.__key = props.key;
+	delete props.ref;
+	delete props.key;
+
+	if (typeof component.constructor.getDerivedStateFromProps === 'undefined') {
+		if (!component.base || mountAll) {
+			if (component.componentWillMount) component.componentWillMount();
+		} else if (component.componentWillReceiveProps) {
+			component.componentWillReceiveProps(props, context);
+		}
+	}
+
+	if (context && context !== component.context) {
+		if (!component.prevContext) component.prevContext = component.context;
+		component.context = context;
+	}
+
+	if (!component.prevProps) component.prevProps = component.props;
+	component.props = props;
+
+	component._disable = false;
+
+	if (renderMode !== 0) {
+		if (renderMode === 1 || options.syncComponentUpdates !== false || !component.base) {
+			renderComponent(component, 1, mountAll);
+		} else {
+			enqueueRender(component);
+		}
+	}
+
+	if (component.__ref) component.__ref(component);
+}
+
+function renderComponent(component, renderMode, mountAll, isChild) {
+	if (component._disable) return;
+
+	var props = component.props,
+	    state = component.state,
+	    context = component.context,
+	    previousProps = component.prevProps || props,
+	    previousState = component.prevState || state,
+	    previousContext = component.prevContext || context,
+	    isUpdate = component.base,
+	    nextBase = component.nextBase,
+	    initialBase = isUpdate || nextBase,
+	    initialChildComponent = component._component,
+	    skip = false,
+	    snapshot = previousContext,
+	    rendered,
+	    inst,
+	    cbase;
+
+	if (component.constructor.getDerivedStateFromProps) {
+		state = extend(extend({}, state), component.constructor.getDerivedStateFromProps(props, state));
+		component.state = state;
+	}
+
+	if (isUpdate) {
+		component.props = previousProps;
+		component.state = previousState;
+		component.context = previousContext;
+		if (renderMode !== 2 && component.shouldComponentUpdate && component.shouldComponentUpdate(props, state, context) === false) {
+			skip = true;
+		} else if (component.componentWillUpdate) {
+			component.componentWillUpdate(props, state, context);
+		}
+		component.props = props;
+		component.state = state;
+		component.context = context;
+	}
+
+	component.prevProps = component.prevState = component.prevContext = component.nextBase = null;
+	component._dirty = false;
+
+	if (!skip) {
+		rendered = component.render(props, state, context);
+
+		if (component.getChildContext) {
+			context = extend(extend({}, context), component.getChildContext());
+		}
+
+		if (isUpdate && component.getSnapshotBeforeUpdate) {
+			snapshot = component.getSnapshotBeforeUpdate(previousProps, previousState);
+		}
+
+		var childComponent = rendered && rendered.nodeName,
+		    toUnmount,
+		    base;
+
+		if (typeof childComponent === 'function') {
+
+			var childProps = getNodeProps(rendered);
+			inst = initialChildComponent;
+
+			if (inst && inst.constructor === childComponent && childProps.key == inst.__key) {
+				setComponentProps(inst, childProps, 1, context, false);
+			} else {
+				toUnmount = inst;
+
+				component._component = inst = createComponent(childComponent, childProps, context);
+				inst.nextBase = inst.nextBase || nextBase;
+				inst._parentComponent = component;
+				setComponentProps(inst, childProps, 0, context, false);
+				renderComponent(inst, 1, mountAll, true);
+			}
+
+			base = inst.base;
+		} else {
+			cbase = initialBase;
+
+			toUnmount = initialChildComponent;
+			if (toUnmount) {
+				cbase = component._component = null;
+			}
+
+			if (initialBase || renderMode === 1) {
+				if (cbase) cbase._component = null;
+				base = diff(cbase, rendered, context, mountAll || !isUpdate, initialBase && initialBase.parentNode, true);
+			}
+		}
+
+		if (initialBase && base !== initialBase && inst !== initialChildComponent) {
+			var baseParent = initialBase.parentNode;
+			if (baseParent && base !== baseParent) {
+				baseParent.replaceChild(base, initialBase);
+
+				if (!toUnmount) {
+					initialBase._component = null;
+					recollectNodeTree(initialBase, false);
+				}
+			}
+		}
+
+		if (toUnmount) {
+			unmountComponent(toUnmount);
+		}
+
+		component.base = base;
+		if (base && !isChild) {
+			var componentRef = component,
+			    t = component;
+			while (t = t._parentComponent) {
+				(componentRef = t).base = base;
+			}
+			base._component = componentRef;
+			base._componentConstructor = componentRef.constructor;
+		}
+	}
+
+	if (!isUpdate || mountAll) {
+		mounts.unshift(component);
+	} else if (!skip) {
+
+		if (component.componentDidUpdate) {
+			component.componentDidUpdate(previousProps, previousState, snapshot);
+		}
+	}
+
+	while (component._renderCallbacks.length) {
+		component._renderCallbacks.pop().call(component);
+	}if (!diffLevel && !isChild) flushMounts();
+}
+
+function buildComponentFromVNode(dom, vnode, context, mountAll) {
+	var c = dom && dom._component,
+	    originalComponent = c,
+	    oldDom = dom,
+	    isDirectOwner = c && dom._componentConstructor === vnode.nodeName,
+	    isOwner = isDirectOwner,
+	    props = getNodeProps(vnode);
+	while (c && !isOwner && (c = c._parentComponent)) {
+		isOwner = c.constructor === vnode.nodeName;
+	}
+
+	if (c && isOwner && (!mountAll || c._component)) {
+		setComponentProps(c, props, 3, context, mountAll);
+		dom = c.base;
+	} else {
+		if (originalComponent && !isDirectOwner) {
+			unmountComponent(originalComponent);
+			dom = oldDom = null;
+		}
+
+		c = createComponent(vnode.nodeName, props, context);
+		if (dom && !c.nextBase) {
+			c.nextBase = dom;
+
+			oldDom = null;
+		}
+		setComponentProps(c, props, 1, context, mountAll);
+		dom = c.base;
+
+		if (oldDom && dom !== oldDom) {
+			oldDom._component = null;
+			recollectNodeTree(oldDom, false);
+		}
+	}
+
+	return dom;
+}
+
+function unmountComponent(component) {
+
+	var base = component.base;
+
+	component._disable = true;
+
+	if (component.componentWillUnmount) component.componentWillUnmount();
+
+	component.base = null;
+
+	var inner = component._component;
+	if (inner) {
+		unmountComponent(inner);
+	} else if (base) {
+		if (base['__preactattr_'] && base['__preactattr_'].ref) base['__preactattr_'].ref(null);
+
+		component.nextBase = base;
+
+		removeNode(base);
+		recyclerComponents.push(component);
+
+		removeChildren(base);
+	}
+
+	if (component.__ref) component.__ref(null);
+}
+
+function Component(props, context) {
+	this._dirty = true;
+
+	this.context = context;
+
+	this.props = props;
+
+	this.state = this.state || {};
+
+	this._renderCallbacks = [];
+}
+
+extend(Component.prototype, {
+	setState: function setState(state, callback) {
+		var prev = this.prevState = this.state;
+		if (typeof state === 'function') state = state(prev, this.props);
+		this.state = extend(extend({}, prev), state);
+		if (callback) this._renderCallbacks.push(callback);
+		enqueueRender(this);
+	},
+	forceUpdate: function forceUpdate(callback) {
+		if (callback) this._renderCallbacks.push(callback);
+		renderComponent(this, 2);
+	},
+	render: function render() {}
+});
+
+function render(vnode, parent, merge) {
+  return diff(merge, vnode, {}, false, parent, false);
+}
+
+var preact = {
+	h: h,
+	createElement: h,
+	cloneElement: cloneElement,
+	Component: Component,
+	render: render,
+	rerender: rerender,
+	options: options
+};
+
+var preact$1 = /*#__PURE__*/Object.freeze({
+	default: preact,
+	h: h,
+	createElement: h,
+	cloneElement: cloneElement,
+	Component: Component,
+	render: render,
+	rerender: rerender,
+	options: options
+});
+
+var util = createCommonjsModule(function (module, exports) {
+Object.defineProperty(exports, "__esModule", { value: true });
+function debounce(f, timeout) {
+    let to;
+    return ((...args) => {
+        clearTimeout(to);
+        to = setTimeout(() => {
+            f(...args);
+        }, timeout);
+    });
+}
+exports.debounce = debounce;
+
+});
+
+unwrapExports(util);
+var util_1 = util.debounce;
+
+var fuse = createCommonjsModule(function (module, exports) {
+/*!
+ * Fuse.js v3.2.1 - Lightweight fuzzy-search (http://fusejs.io)
+ * 
+ * Copyright (c) 2012-2017 Kirollos Risk (http://kiro.me)
+ * All Rights Reserved. Apache Software License 2.0
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
+(function webpackUniversalModuleDefinition(root, factory) {
+	module.exports = factory();
+})(commonjsGlobal, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+module.exports = function (obj) {
+  return !Array.isArray ? Object.prototype.toString.call(obj) === '[object Array]' : Array.isArray(obj);
+};
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var bitapRegexSearch = __webpack_require__(5);
+var bitapSearch = __webpack_require__(7);
+var patternAlphabet = __webpack_require__(4);
+
+var Bitap = function () {
+  function Bitap(pattern, _ref) {
+    var _ref$location = _ref.location,
+        location = _ref$location === undefined ? 0 : _ref$location,
+        _ref$distance = _ref.distance,
+        distance = _ref$distance === undefined ? 100 : _ref$distance,
+        _ref$threshold = _ref.threshold,
+        threshold = _ref$threshold === undefined ? 0.6 : _ref$threshold,
+        _ref$maxPatternLength = _ref.maxPatternLength,
+        maxPatternLength = _ref$maxPatternLength === undefined ? 32 : _ref$maxPatternLength,
+        _ref$isCaseSensitive = _ref.isCaseSensitive,
+        isCaseSensitive = _ref$isCaseSensitive === undefined ? false : _ref$isCaseSensitive,
+        _ref$tokenSeparator = _ref.tokenSeparator,
+        tokenSeparator = _ref$tokenSeparator === undefined ? / +/g : _ref$tokenSeparator,
+        _ref$findAllMatches = _ref.findAllMatches,
+        findAllMatches = _ref$findAllMatches === undefined ? false : _ref$findAllMatches,
+        _ref$minMatchCharLeng = _ref.minMatchCharLength,
+        minMatchCharLength = _ref$minMatchCharLeng === undefined ? 1 : _ref$minMatchCharLeng;
+
+    _classCallCheck(this, Bitap);
+
+    this.options = {
+      location: location,
+      distance: distance,
+      threshold: threshold,
+      maxPatternLength: maxPatternLength,
+      isCaseSensitive: isCaseSensitive,
+      tokenSeparator: tokenSeparator,
+      findAllMatches: findAllMatches,
+      minMatchCharLength: minMatchCharLength
+    };
+
+    this.pattern = this.options.isCaseSensitive ? pattern : pattern.toLowerCase();
+
+    if (this.pattern.length <= maxPatternLength) {
+      this.patternAlphabet = patternAlphabet(this.pattern);
+    }
+  }
+
+  _createClass(Bitap, [{
+    key: 'search',
+    value: function search(text) {
+      if (!this.options.isCaseSensitive) {
+        text = text.toLowerCase();
+      }
+
+      // Exact match
+      if (this.pattern === text) {
+        return {
+          isMatch: true,
+          score: 0,
+          matchedIndices: [[0, text.length - 1]]
+        };
+      }
+
+      // When pattern length is greater than the machine word length, just do a a regex comparison
+      var _options = this.options,
+          maxPatternLength = _options.maxPatternLength,
+          tokenSeparator = _options.tokenSeparator;
+
+      if (this.pattern.length > maxPatternLength) {
+        return bitapRegexSearch(text, this.pattern, tokenSeparator);
+      }
+
+      // Otherwise, use Bitap algorithm
+      var _options2 = this.options,
+          location = _options2.location,
+          distance = _options2.distance,
+          threshold = _options2.threshold,
+          findAllMatches = _options2.findAllMatches,
+          minMatchCharLength = _options2.minMatchCharLength;
+
+      return bitapSearch(text, this.pattern, this.patternAlphabet, {
+        location: location,
+        distance: distance,
+        threshold: threshold,
+        findAllMatches: findAllMatches,
+        minMatchCharLength: minMatchCharLength
+      });
+    }
+  }]);
+
+  return Bitap;
+}();
+
+// let x = new Bitap("od mn war", {})
+// let result = x.search("Old Man's War")
+// console.log(result)
+
+module.exports = Bitap;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var isArray = __webpack_require__(0);
+
+var deepValue = function deepValue(obj, path, list) {
+  if (!path) {
+    // If there's no path left, we've gotten to the object we care about.
+    list.push(obj);
+  } else {
+    var dotIndex = path.indexOf('.');
+    var firstSegment = path;
+    var remaining = null;
+
+    if (dotIndex !== -1) {
+      firstSegment = path.slice(0, dotIndex);
+      remaining = path.slice(dotIndex + 1);
+    }
+
+    var value = obj[firstSegment];
+
+    if (value !== null && value !== undefined) {
+      if (!remaining && (typeof value === 'string' || typeof value === 'number')) {
+        list.push(value.toString());
+      } else if (isArray(value)) {
+        // Search each item in the array.
+        for (var i = 0, len = value.length; i < len; i += 1) {
+          deepValue(value[i], remaining, list);
+        }
+      } else if (remaining) {
+        // An object. Recurse further.
+        deepValue(value, remaining, list);
+      }
+    }
+  }
+
+  return list;
+};
+
+module.exports = function (obj, path) {
+  return deepValue(obj, path, []);
+};
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+module.exports = function () {
+  var matchmask = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var minMatchCharLength = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
+  var matchedIndices = [];
+  var start = -1;
+  var end = -1;
+  var i = 0;
+
+  for (var len = matchmask.length; i < len; i += 1) {
+    var match = matchmask[i];
+    if (match && start === -1) {
+      start = i;
+    } else if (!match && start !== -1) {
+      end = i - 1;
+      if (end - start + 1 >= minMatchCharLength) {
+        matchedIndices.push([start, end]);
+      }
+      start = -1;
+    }
+  }
+
+  // (i-1 - start) + 1 => i - start
+  if (matchmask[i - 1] && i - start >= minMatchCharLength) {
+    matchedIndices.push([start, i - 1]);
+  }
+
+  return matchedIndices;
+};
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+module.exports = function (pattern) {
+  var mask = {};
+  var len = pattern.length;
+
+  for (var i = 0; i < len; i += 1) {
+    mask[pattern.charAt(i)] = 0;
+  }
+
+  for (var _i = 0; _i < len; _i += 1) {
+    mask[pattern.charAt(_i)] |= 1 << len - _i - 1;
+  }
+
+  return mask;
+};
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var SPECIAL_CHARS_REGEX = /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g;
+
+module.exports = function (text, pattern) {
+  var tokenSeparator = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : / +/g;
+
+  var regex = new RegExp(pattern.replace(SPECIAL_CHARS_REGEX, '\\$&').replace(tokenSeparator, '|'));
+  var matches = text.match(regex);
+  var isMatch = !!matches;
+  var matchedIndices = [];
+
+  if (isMatch) {
+    for (var i = 0, matchesLen = matches.length; i < matchesLen; i += 1) {
+      var match = matches[i];
+      matchedIndices.push([text.indexOf(match), match.length - 1]);
+    }
+  }
+
+  return {
+    // TODO: revisit this score
+    score: isMatch ? 0.5 : 1,
+    isMatch: isMatch,
+    matchedIndices: matchedIndices
+  };
+};
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+module.exports = function (pattern, _ref) {
+  var _ref$errors = _ref.errors,
+      errors = _ref$errors === undefined ? 0 : _ref$errors,
+      _ref$currentLocation = _ref.currentLocation,
+      currentLocation = _ref$currentLocation === undefined ? 0 : _ref$currentLocation,
+      _ref$expectedLocation = _ref.expectedLocation,
+      expectedLocation = _ref$expectedLocation === undefined ? 0 : _ref$expectedLocation,
+      _ref$distance = _ref.distance,
+      distance = _ref$distance === undefined ? 100 : _ref$distance;
+
+  var accuracy = errors / pattern.length;
+  var proximity = Math.abs(expectedLocation - currentLocation);
+
+  if (!distance) {
+    // Dodge divide by zero error.
+    return proximity ? 1.0 : accuracy;
+  }
+
+  return accuracy + proximity / distance;
+};
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var bitapScore = __webpack_require__(6);
+var matchedIndices = __webpack_require__(3);
+
+module.exports = function (text, pattern, patternAlphabet, _ref) {
+  var _ref$location = _ref.location,
+      location = _ref$location === undefined ? 0 : _ref$location,
+      _ref$distance = _ref.distance,
+      distance = _ref$distance === undefined ? 100 : _ref$distance,
+      _ref$threshold = _ref.threshold,
+      threshold = _ref$threshold === undefined ? 0.6 : _ref$threshold,
+      _ref$findAllMatches = _ref.findAllMatches,
+      findAllMatches = _ref$findAllMatches === undefined ? false : _ref$findAllMatches,
+      _ref$minMatchCharLeng = _ref.minMatchCharLength,
+      minMatchCharLength = _ref$minMatchCharLeng === undefined ? 1 : _ref$minMatchCharLeng;
+
+  var expectedLocation = location;
+  // Set starting location at beginning text and initialize the alphabet.
+  var textLen = text.length;
+  // Highest score beyond which we give up.
+  var currentThreshold = threshold;
+  // Is there a nearby exact match? (speedup)
+  var bestLocation = text.indexOf(pattern, expectedLocation);
+
+  var patternLen = pattern.length;
+
+  // a mask of the matches
+  var matchMask = [];
+  for (var i = 0; i < textLen; i += 1) {
+    matchMask[i] = 0;
+  }
+
+  if (bestLocation !== -1) {
+    var score = bitapScore(pattern, {
+      errors: 0,
+      currentLocation: bestLocation,
+      expectedLocation: expectedLocation,
+      distance: distance
+    });
+    currentThreshold = Math.min(score, currentThreshold);
+
+    // What about in the other direction? (speed up)
+    bestLocation = text.lastIndexOf(pattern, expectedLocation + patternLen);
+
+    if (bestLocation !== -1) {
+      var _score = bitapScore(pattern, {
+        errors: 0,
+        currentLocation: bestLocation,
+        expectedLocation: expectedLocation,
+        distance: distance
+      });
+      currentThreshold = Math.min(_score, currentThreshold);
+    }
+  }
+
+  // Reset the best location
+  bestLocation = -1;
+
+  var lastBitArr = [];
+  var finalScore = 1;
+  var binMax = patternLen + textLen;
+
+  var mask = 1 << patternLen - 1;
+
+  for (var _i = 0; _i < patternLen; _i += 1) {
+    // Scan for the best match; each iteration allows for one more error.
+    // Run a binary search to determine how far from the match location we can stray
+    // at this error level.
+    var binMin = 0;
+    var binMid = binMax;
+
+    while (binMin < binMid) {
+      var _score3 = bitapScore(pattern, {
+        errors: _i,
+        currentLocation: expectedLocation + binMid,
+        expectedLocation: expectedLocation,
+        distance: distance
+      });
+
+      if (_score3 <= currentThreshold) {
+        binMin = binMid;
+      } else {
+        binMax = binMid;
+      }
+
+      binMid = Math.floor((binMax - binMin) / 2 + binMin);
+    }
+
+    // Use the result from this iteration as the maximum for the next.
+    binMax = binMid;
+
+    var start = Math.max(1, expectedLocation - binMid + 1);
+    var finish = findAllMatches ? textLen : Math.min(expectedLocation + binMid, textLen) + patternLen;
+
+    // Initialize the bit array
+    var bitArr = Array(finish + 2);
+
+    bitArr[finish + 1] = (1 << _i) - 1;
+
+    for (var j = finish; j >= start; j -= 1) {
+      var currentLocation = j - 1;
+      var charMatch = patternAlphabet[text.charAt(currentLocation)];
+
+      if (charMatch) {
+        matchMask[currentLocation] = 1;
+      }
+
+      // First pass: exact match
+      bitArr[j] = (bitArr[j + 1] << 1 | 1) & charMatch;
+
+      // Subsequent passes: fuzzy match
+      if (_i !== 0) {
+        bitArr[j] |= (lastBitArr[j + 1] | lastBitArr[j]) << 1 | 1 | lastBitArr[j + 1];
+      }
+
+      if (bitArr[j] & mask) {
+        finalScore = bitapScore(pattern, {
+          errors: _i,
+          currentLocation: currentLocation,
+          expectedLocation: expectedLocation,
+          distance: distance
+        });
+
+        // This match will almost certainly be better than any existing match.
+        // But check anyway.
+        if (finalScore <= currentThreshold) {
+          // Indeed it is
+          currentThreshold = finalScore;
+          bestLocation = currentLocation;
+
+          // Already passed `loc`, downhill from here on in.
+          if (bestLocation <= expectedLocation) {
+            break;
+          }
+
+          // When passing `bestLocation`, don't exceed our current distance from `expectedLocation`.
+          start = Math.max(1, 2 * expectedLocation - bestLocation);
+        }
+      }
+    }
+
+    // No hope for a (better) match at greater error levels.
+    var _score2 = bitapScore(pattern, {
+      errors: _i + 1,
+      currentLocation: expectedLocation,
+      expectedLocation: expectedLocation,
+      distance: distance
+    });
+
+    // console.log('score', score, finalScore)
+
+    if (_score2 > currentThreshold) {
+      break;
+    }
+
+    lastBitArr = bitArr;
+  }
+
+  // console.log('FINAL SCORE', finalScore)
+
+  // Count exact matches (those with a score of 0) to be "almost" exact
+  return {
+    isMatch: bestLocation >= 0,
+    score: finalScore === 0 ? 0.001 : finalScore,
+    matchedIndices: matchedIndices(matchMask, minMatchCharLength)
+  };
+};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Bitap = __webpack_require__(1);
+var deepValue = __webpack_require__(2);
+var isArray = __webpack_require__(0);
+
+var Fuse = function () {
+  function Fuse(list, _ref) {
+    var _ref$location = _ref.location,
+        location = _ref$location === undefined ? 0 : _ref$location,
+        _ref$distance = _ref.distance,
+        distance = _ref$distance === undefined ? 100 : _ref$distance,
+        _ref$threshold = _ref.threshold,
+        threshold = _ref$threshold === undefined ? 0.6 : _ref$threshold,
+        _ref$maxPatternLength = _ref.maxPatternLength,
+        maxPatternLength = _ref$maxPatternLength === undefined ? 32 : _ref$maxPatternLength,
+        _ref$caseSensitive = _ref.caseSensitive,
+        caseSensitive = _ref$caseSensitive === undefined ? false : _ref$caseSensitive,
+        _ref$tokenSeparator = _ref.tokenSeparator,
+        tokenSeparator = _ref$tokenSeparator === undefined ? / +/g : _ref$tokenSeparator,
+        _ref$findAllMatches = _ref.findAllMatches,
+        findAllMatches = _ref$findAllMatches === undefined ? false : _ref$findAllMatches,
+        _ref$minMatchCharLeng = _ref.minMatchCharLength,
+        minMatchCharLength = _ref$minMatchCharLeng === undefined ? 1 : _ref$minMatchCharLeng,
+        _ref$id = _ref.id,
+        id = _ref$id === undefined ? null : _ref$id,
+        _ref$keys = _ref.keys,
+        keys = _ref$keys === undefined ? [] : _ref$keys,
+        _ref$shouldSort = _ref.shouldSort,
+        shouldSort = _ref$shouldSort === undefined ? true : _ref$shouldSort,
+        _ref$getFn = _ref.getFn,
+        getFn = _ref$getFn === undefined ? deepValue : _ref$getFn,
+        _ref$sortFn = _ref.sortFn,
+        sortFn = _ref$sortFn === undefined ? function (a, b) {
+      return a.score - b.score;
+    } : _ref$sortFn,
+        _ref$tokenize = _ref.tokenize,
+        tokenize = _ref$tokenize === undefined ? false : _ref$tokenize,
+        _ref$matchAllTokens = _ref.matchAllTokens,
+        matchAllTokens = _ref$matchAllTokens === undefined ? false : _ref$matchAllTokens,
+        _ref$includeMatches = _ref.includeMatches,
+        includeMatches = _ref$includeMatches === undefined ? false : _ref$includeMatches,
+        _ref$includeScore = _ref.includeScore,
+        includeScore = _ref$includeScore === undefined ? false : _ref$includeScore,
+        _ref$verbose = _ref.verbose,
+        verbose = _ref$verbose === undefined ? false : _ref$verbose;
+
+    _classCallCheck(this, Fuse);
+
+    this.options = {
+      location: location,
+      distance: distance,
+      threshold: threshold,
+      maxPatternLength: maxPatternLength,
+      isCaseSensitive: caseSensitive,
+      tokenSeparator: tokenSeparator,
+      findAllMatches: findAllMatches,
+      minMatchCharLength: minMatchCharLength,
+      id: id,
+      keys: keys,
+      includeMatches: includeMatches,
+      includeScore: includeScore,
+      shouldSort: shouldSort,
+      getFn: getFn,
+      sortFn: sortFn,
+      verbose: verbose,
+      tokenize: tokenize,
+      matchAllTokens: matchAllTokens
+    };
+
+    this.setCollection(list);
+  }
+
+  _createClass(Fuse, [{
+    key: 'setCollection',
+    value: function setCollection(list) {
+      this.list = list;
+      return list;
+    }
+  }, {
+    key: 'search',
+    value: function search(pattern) {
+      this._log('---------\nSearch pattern: "' + pattern + '"');
+
+      var _prepareSearchers2 = this._prepareSearchers(pattern),
+          tokenSearchers = _prepareSearchers2.tokenSearchers,
+          fullSearcher = _prepareSearchers2.fullSearcher;
+
+      var _search2 = this._search(tokenSearchers, fullSearcher),
+          weights = _search2.weights,
+          results = _search2.results;
+
+      this._computeScore(weights, results);
+
+      if (this.options.shouldSort) {
+        this._sort(results);
+      }
+
+      return this._format(results);
+    }
+  }, {
+    key: '_prepareSearchers',
+    value: function _prepareSearchers() {
+      var pattern = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+      var tokenSearchers = [];
+
+      if (this.options.tokenize) {
+        // Tokenize on the separator
+        var tokens = pattern.split(this.options.tokenSeparator);
+        for (var i = 0, len = tokens.length; i < len; i += 1) {
+          tokenSearchers.push(new Bitap(tokens[i], this.options));
+        }
+      }
+
+      var fullSearcher = new Bitap(pattern, this.options);
+
+      return { tokenSearchers: tokenSearchers, fullSearcher: fullSearcher };
+    }
+  }, {
+    key: '_search',
+    value: function _search() {
+      var tokenSearchers = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      var fullSearcher = arguments[1];
+
+      var list = this.list;
+      var resultMap = {};
+      var results = [];
+
+      // Check the first item in the list, if it's a string, then we assume
+      // that every item in the list is also a string, and thus it's a flattened array.
+      if (typeof list[0] === 'string') {
+        // Iterate over every item
+        for (var i = 0, len = list.length; i < len; i += 1) {
+          this._analyze({
+            key: '',
+            value: list[i],
+            record: i,
+            index: i
+          }, {
+            resultMap: resultMap,
+            results: results,
+            tokenSearchers: tokenSearchers,
+            fullSearcher: fullSearcher
+          });
+        }
+
+        return { weights: null, results: results };
+      }
+
+      // Otherwise, the first item is an Object (hopefully), and thus the searching
+      // is done on the values of the keys of each item.
+      var weights = {};
+      for (var _i = 0, _len = list.length; _i < _len; _i += 1) {
+        var item = list[_i];
+        // Iterate over every key
+        for (var j = 0, keysLen = this.options.keys.length; j < keysLen; j += 1) {
+          var key = this.options.keys[j];
+          if (typeof key !== 'string') {
+            weights[key.name] = {
+              weight: 1 - key.weight || 1
+            };
+            if (key.weight <= 0 || key.weight > 1) {
+              throw new Error('Key weight has to be > 0 and <= 1');
+            }
+            key = key.name;
+          } else {
+            weights[key] = {
+              weight: 1
+            };
+          }
+
+          this._analyze({
+            key: key,
+            value: this.options.getFn(item, key),
+            record: item,
+            index: _i
+          }, {
+            resultMap: resultMap,
+            results: results,
+            tokenSearchers: tokenSearchers,
+            fullSearcher: fullSearcher
+          });
+        }
+      }
+
+      return { weights: weights, results: results };
+    }
+  }, {
+    key: '_analyze',
+    value: function _analyze(_ref2, _ref3) {
+      var key = _ref2.key,
+          _ref2$arrayIndex = _ref2.arrayIndex,
+          arrayIndex = _ref2$arrayIndex === undefined ? -1 : _ref2$arrayIndex,
+          value = _ref2.value,
+          record = _ref2.record,
+          index = _ref2.index;
+      var _ref3$tokenSearchers = _ref3.tokenSearchers,
+          tokenSearchers = _ref3$tokenSearchers === undefined ? [] : _ref3$tokenSearchers,
+          _ref3$fullSearcher = _ref3.fullSearcher,
+          fullSearcher = _ref3$fullSearcher === undefined ? [] : _ref3$fullSearcher,
+          _ref3$resultMap = _ref3.resultMap,
+          resultMap = _ref3$resultMap === undefined ? {} : _ref3$resultMap,
+          _ref3$results = _ref3.results,
+          results = _ref3$results === undefined ? [] : _ref3$results;
+
+      // Check if the texvaluet can be searched
+      if (value === undefined || value === null) {
+        return;
+      }
+
+      var exists = false;
+      var averageScore = -1;
+      var numTextMatches = 0;
+
+      if (typeof value === 'string') {
+        this._log('\nKey: ' + (key === '' ? '-' : key));
+
+        var mainSearchResult = fullSearcher.search(value);
+        this._log('Full text: "' + value + '", score: ' + mainSearchResult.score);
+
+        if (this.options.tokenize) {
+          var words = value.split(this.options.tokenSeparator);
+          var scores = [];
+
+          for (var i = 0; i < tokenSearchers.length; i += 1) {
+            var tokenSearcher = tokenSearchers[i];
+
+            this._log('\nPattern: "' + tokenSearcher.pattern + '"');
+
+            // let tokenScores = []
+            var hasMatchInText = false;
+
+            for (var j = 0; j < words.length; j += 1) {
+              var word = words[j];
+              var tokenSearchResult = tokenSearcher.search(word);
+              var obj = {};
+              if (tokenSearchResult.isMatch) {
+                obj[word] = tokenSearchResult.score;
+                exists = true;
+                hasMatchInText = true;
+                scores.push(tokenSearchResult.score);
+              } else {
+                obj[word] = 1;
+                if (!this.options.matchAllTokens) {
+                  scores.push(1);
+                }
+              }
+              this._log('Token: "' + word + '", score: ' + obj[word]);
+              // tokenScores.push(obj)
+            }
+
+            if (hasMatchInText) {
+              numTextMatches += 1;
+            }
+          }
+
+          averageScore = scores[0];
+          var scoresLen = scores.length;
+          for (var _i2 = 1; _i2 < scoresLen; _i2 += 1) {
+            averageScore += scores[_i2];
+          }
+          averageScore = averageScore / scoresLen;
+
+          this._log('Token score average:', averageScore);
+        }
+
+        var finalScore = mainSearchResult.score;
+        if (averageScore > -1) {
+          finalScore = (finalScore + averageScore) / 2;
+        }
+
+        this._log('Score average:', finalScore);
+
+        var checkTextMatches = this.options.tokenize && this.options.matchAllTokens ? numTextMatches >= tokenSearchers.length : true;
+
+        this._log('\nCheck Matches: ' + checkTextMatches);
+
+        // If a match is found, add the item to <rawResults>, including its score
+        if ((exists || mainSearchResult.isMatch) && checkTextMatches) {
+          // Check if the item already exists in our results
+          var existingResult = resultMap[index];
+          if (existingResult) {
+            // Use the lowest score
+            // existingResult.score, bitapResult.score
+            existingResult.output.push({
+              key: key,
+              arrayIndex: arrayIndex,
+              value: value,
+              score: finalScore,
+              matchedIndices: mainSearchResult.matchedIndices
+            });
+          } else {
+            // Add it to the raw result list
+            resultMap[index] = {
+              item: record,
+              output: [{
+                key: key,
+                arrayIndex: arrayIndex,
+                value: value,
+                score: finalScore,
+                matchedIndices: mainSearchResult.matchedIndices
+              }]
+            };
+
+            results.push(resultMap[index]);
+          }
+        }
+      } else if (isArray(value)) {
+        for (var _i3 = 0, len = value.length; _i3 < len; _i3 += 1) {
+          this._analyze({
+            key: key,
+            arrayIndex: _i3,
+            value: value[_i3],
+            record: record,
+            index: index
+          }, {
+            resultMap: resultMap,
+            results: results,
+            tokenSearchers: tokenSearchers,
+            fullSearcher: fullSearcher
+          });
+        }
+      }
+    }
+  }, {
+    key: '_computeScore',
+    value: function _computeScore(weights, results) {
+      this._log('\n\nComputing score:\n');
+
+      for (var i = 0, len = results.length; i < len; i += 1) {
+        var output = results[i].output;
+        var scoreLen = output.length;
+
+        var currScore = 1;
+        var bestScore = 1;
+
+        for (var j = 0; j < scoreLen; j += 1) {
+          var weight = weights ? weights[output[j].key].weight : 1;
+          var score = weight === 1 ? output[j].score : output[j].score || 0.001;
+          var nScore = score * weight;
+
+          if (weight !== 1) {
+            bestScore = Math.min(bestScore, nScore);
+          } else {
+            output[j].nScore = nScore;
+            currScore *= nScore;
+          }
+        }
+
+        results[i].score = bestScore === 1 ? currScore : bestScore;
+
+        this._log(results[i]);
+      }
+    }
+  }, {
+    key: '_sort',
+    value: function _sort(results) {
+      this._log('\n\nSorting....');
+      results.sort(this.options.sortFn);
+    }
+  }, {
+    key: '_format',
+    value: function _format(results) {
+      var finalOutput = [];
+
+      if (this.options.verbose) {
+        this._log('\n\nOutput:\n\n', JSON.stringify(results));
+      }
+
+      var transformers = [];
+
+      if (this.options.includeMatches) {
+        transformers.push(function (result, data) {
+          var output = result.output;
+          data.matches = [];
+
+          for (var i = 0, len = output.length; i < len; i += 1) {
+            var item = output[i];
+
+            if (item.matchedIndices.length === 0) {
+              continue;
+            }
+
+            var obj = {
+              indices: item.matchedIndices,
+              value: item.value
+            };
+            if (item.key) {
+              obj.key = item.key;
+            }
+            if (item.hasOwnProperty('arrayIndex') && item.arrayIndex > -1) {
+              obj.arrayIndex = item.arrayIndex;
+            }
+            data.matches.push(obj);
+          }
+        });
+      }
+
+      if (this.options.includeScore) {
+        transformers.push(function (result, data) {
+          data.score = result.score;
+        });
+      }
+
+      for (var i = 0, len = results.length; i < len; i += 1) {
+        var result = results[i];
+
+        if (this.options.id) {
+          result.item = this.options.getFn(result.item, this.options.id)[0];
+        }
+
+        if (!transformers.length) {
+          finalOutput.push(result.item);
+          continue;
+        }
+
+        var data = {
+          item: result.item
+        };
+
+        for (var j = 0, _len2 = transformers.length; j < _len2; j += 1) {
+          transformers[j](result, data);
+        }
+
+        finalOutput.push(data);
+      }
+
+      return finalOutput;
+    }
+  }, {
+    key: '_log',
+    value: function _log() {
+      if (this.options.verbose) {
+        var _console;
+
+        (_console = console).log.apply(_console, arguments);
+      }
+    }
+  }]);
+
+  return Fuse;
+}();
+
+module.exports = Fuse;
+
+/***/ })
+/******/ ]);
+});
+
+});
+
+unwrapExports(fuse);
+
+var Notes_1 = createCommonjsModule(function (module, exports) {
+var __importDefault = (commonjsGlobal && commonjsGlobal.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const fuse_js_1 = __importDefault(fuse);
+class Notes {
+    constructor(cb) {
+        this.notes = [];
+        this.searchResult = [];
+        this.fuse = new fuse_js_1.default([], { keys: [] });
+        this.i = 0;
+        this.selectNext = () => this.select(this.i + 1);
+        this.selectPrev = () => this.select(this.i - 1);
+        this.cb = cb;
+    }
+    ii(i) {
+        return Math.max(0, Math.min(i, this.searchResult.length - 1));
+    }
+    set(notes) {
+        this.notes = notes;
+        this.searchResult = notes;
+        this.fuse = new fuse_js_1.default(Object.values(notes), {
+            keys: [
+                { name: 'title', weight: 1 },
+                { name: 'author', weight: 1 },
+                { name: 'src', weight: 0.5 }
+            ]
+        });
+        this.select(0);
+    }
+    select(i) {
+        if (this.selectedNote)
+            this.selectedNote.selected = false;
+        this.i = this.ii(i);
+        this.selectedNote = this.searchResult[this.i];
+        if (this.selectedNote)
+            this.selectedNote.selected = true;
+        this.cb(this.searchResult);
+        return this.selectedNote;
+    }
+    search(query) {
+        this.searchResult = query
+            ? this.fuse.search(query)
+            : this.notes;
+        this.select(0);
+    }
+}
+exports.Notes = Notes;
+
+});
+
+unwrapExports(Notes_1);
+var Notes_2 = Notes_1.Notes;
+
+var preact_1 = ( preact$1 && preact ) || preact$1;
+
+var app = createCommonjsModule(function (module, exports) {
+Object.defineProperty(exports, "__esModule", { value: true });
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const leftRoot = document.getElementById('left-root');
+    const rightRoot = document.getElementById('right-root');
+    const dummyInput = document.getElementById('dummy-input');
+    const search = document.getElementById('search');
+    let lastSeen = Date.now();
+    window.onfocus = () => {
+        lastSeen = Date.now();
+    };
+    const notes = new Notes_1.Notes(notes => {
+        preact_1.render(preact_1.h("div", null, notes.map(note => (preact_1.h("div", { key: note.path, "data-key": note.path, className: 'note-preview', "data-selected": note.selected, "data-seen": note.time < lastSeen },
+            preact_1.h("div", { className: 'note-title flex-grow' }, note.title),
+            preact_1.h("div", { className: 'note-date flex-align-bottom' }, new Date(note.time).toLocaleString()),
+            preact_1.h("div", { className: 'note-author' }, note.author))))), leftRoot, leftRoot.lastChild);
+        preact_1.render(preact_1.h("div", null, notes.map(note => (preact_1.h("div", { key: note.path, "data-key": note.path, className: 'note-view', dangerouslySetInnerHTML: { __html: note.html } })))), rightRoot, rightRoot.lastChild);
+        if (notes.length)
+            scroll(notes[0].path);
+    });
+    function scroll(path) {
+        document.querySelectorAll(`[data-key='${path}']`)
+            .forEach(e => e.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        }));
+    }
+    function clearSearch() {
+        search.value = '';
+        notes.search('');
+        dummyInput.focus();
+    }
+    document.body.addEventListener('keydown', (e) => {
+        if (e.keyCode !== 27)
+            return;
+        e.preventDefault();
+        clearSearch();
+    });
+    document.body.addEventListener('keypress', (e) => {
+        if (e.target === search)
+            return;
+        const actions = {
+            'j': () => {
+                scroll(notes.selectNext().path);
+            },
+            'k': () => {
+                scroll(notes.selectPrev().path);
+            },
+            '/': () => search.select()
+        };
+        if (!actions.hasOwnProperty(e.key))
+            return;
+        e.preventDefault();
+        actions[e.key]();
+    });
+    search.addEventListener('keydown', e => {
+        const actions = {
+            13: () => {
+                dummyInput.focus();
+            },
+            27: clearSearch
+        };
+        if (!actions.hasOwnProperty(e.keyCode))
+            return;
+        e.preventDefault();
+        actions[e.keyCode]();
+    });
+    search.addEventListener('input', util.debounce(e => {
+        notes.search(search.value);
+    }, 400));
+    notes.set(data);
+});
+
+});
+
+var index = unwrapExports(app);
+
+export default index;
+</script>
+<title>npmnotes.org</title>
+</head>
+
+<body>
+<input id='dummy-input' type="text">
+<div id='main' class='flex'>
+<div id='left'>
+<div id='search-box' class='flex'>
+<i class='fa fa-search flex-align-center'></i>
+<input id='search' type="search" class='flex-grow' />
+</div>
+<div id='left-root'></div>
+</div>
+<div id='right-root' class='flex-grow'></div>
+</div>
+</body>
+</html>

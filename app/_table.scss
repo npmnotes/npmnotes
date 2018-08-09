@@ -1,0 +1,32 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 1em;
+    table-layout: fixed;
+    width: 100%;
+}
+
+table,
+th {
+    text-align: left;
+}
+
+th {
+    padding: .5em 0;
+    background-color: #d4d4d4;
+}
+
+tr:nth-child(even) {
+    background-color: whitesmoke;
+}
+
+td,
+th {
+    padding: .5em;
+    border: 1px solid #cbcbcb;
+}
+
+td,
+th {
+    border-top: none;
+    border-bottom: none;
+}

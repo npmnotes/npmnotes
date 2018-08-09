@@ -1,0 +1,34 @@
+@import 'color';
+.note-preview {
+    transition: opacity .5s;
+    padding: 1em 0;
+    line-height: 1.5em;
+    opacity: .5;
+    border: .2em solid transparent;
+}
+
+.note-view {
+    padding: 10vh 0;
+    max-width: 40em;
+}
+
+.note-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: $color-note-title;
+}
+
+.note-date {
+    font-size: .9em;
+    color: $color-note-date;
+}
+
+.note-author {
+    font-size: .8em;
+    color: $color-note-author;
+}
+
+[data-selected=true] {
+    border-right-color: $color-border;
+    opacity: 1;
+}

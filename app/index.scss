@@ -1,0 +1,73 @@
+// FONTS
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+// ICONS
+@import url('https://use.fontawesome.com/releases/v5.2.0/css/all.css');
+// SYNTAX
+@import url("https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-tomorrow.min.css");
+// 
+@import 'search-box';
+@import 'note';
+@import 'color';
+@import 'flex';
+@import 'table';
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    color: $color-body;
+    font-family: 'Work Sans', sans-serif;
+}
+
+html,
+body,
+#root,
+#main {
+    height: 100%;
+    overflow: hidden;
+}
+
+#view {
+    padding: 1em;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#left,
+#right-root {
+    overflow-y: scroll;
+}
+
+#left {
+    padding: 1em;
+    min-width: 25em;
+}
+
+#right-root {
+    padding: 3em;
+}
+
+#dummy-input {
+    display: flex;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+table,
+img,
+pre {
+    box-shadow: 0 0 1em #666;
+    max-width: 100%;
+    margin: 2em 0;
+}
