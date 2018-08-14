@@ -1,11 +1,11 @@
 @import 'color';
 
 #search-box {
+    position: sticky;
+    top: 1em;
     padding: .2em;
     border: 1px solid $color-border;
     border-radius: .2em;
-    position: sticky;
-    top: 0;
     margin-bottom: 2em;
     background-color: white;
     input {

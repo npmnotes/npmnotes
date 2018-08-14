@@ -22,16 +22,19 @@ export default function html(data: {
 
 <body>
 <input id='dummy-input' type="text">
-<div id='main' class='flex'>
-<div id='left'>
-<div id='search-box' class='flex'>
-<i class='fa fa-search flex-align-center'></i>
-<input id='search' type="search" class='flex-grow' />
+
+
+<div id='main' class='row'>
+    <div id='left' class='column'>
+        <div id='search-box' class='row'>
+            <i class='fa fa-search flex-align-center'></i>
+            <input id='search' type="search" class='flex-grow' />
+        </div>
+        <div id='left-root'></div>
+    </div>
+    <div id='right-root' class='flex-grow'></div>
 </div>
-<div id='left-root'></div>
-</div>
-<div id='right-root' class='flex-grow'></div>
-</div>
+
 </body>
 </html>`
     )

@@ -55,11 +55,27 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     function scroll(path: string) {
-        document.querySelectorAll(`[data-key='${path}']`)
-            .forEach(e => e.scrollIntoView({
-                behavior: 'smooth'
-                , block: 'center'
-            }))
+        function e(q: string) {
+            return document.querySelector(q) as Element
+        }
+
+        const top = e(`.note-preview[data-key='${path}']`).clientTop
+        console.log(top)
+        leftRoot.scrollTo({
+            behavior: 'smooth'
+            , top: top
+        })
+        // e(`.note-preview[data-key='${path}']`).scrollIntoView({
+        //     behavior: 'smooth'
+        //     , block: 'start'
+        // })
+
+        // setTimeout(() => {
+        //     e(`.note-view[data-key='${path}']`).scrollIntoView({
+        //         behavior: 'smooth'
+        //         , block: 'start'
+        //     })
+        // }, 200)
     }
 
     function clearSearch() {

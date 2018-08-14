@@ -10,11 +10,11 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-tomorrow.min.css");
 @import url("https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css");
 #search-box {
+  position: sticky;
+  top: 1em;
   padding: .2em;
   border: 1px solid #D8DEE9;
   border-radius: .2em;
-  position: sticky;
-  top: 0;
   margin-bottom: 2em;
   background-color: white; }
   #search-box input {
@@ -51,8 +51,12 @@
   border-right-color: #D8DEE9;
   opacity: 1; }
 
-.flex {
+.row {
   display: flex; }
+
+.column {
+  display: flex;
+  flex-direction: column; }
 
 .flex-grow {
   flex-grow: 1; }
@@ -96,38 +100,51 @@ th {
 html,
 body {
   width: 100%;
+  height: 100%;
   padding: 0;
   margin: 0; }
 
 body {
   color: #343D46;
   font-family: 'Work Sans', sans-serif;
-  font-size: 105%;
-  line-height: 140%; }
+  font-size: 105%; }
 
 html,
 body,
-#root,
 #main {
   height: 100%;
   overflow: hidden; }
 
-#view {
-  padding: 1em; }
+#left {
+  height: 100%;
+  padding: 1em;
+  padding-bottom: 0; }
 
-::-webkit-scrollbar {
-  display: none; }
-
-#left,
+#left-root,
 #right-root {
   overflow-y: scroll; }
 
-#left {
-  padding: 1em;
+#left-root {
   min-width: 25em; }
 
 #right-root {
   padding: 3em; }
+
+table,
+pre {
+  box-shadow: 0 0 1em #666; }
+
+p {
+  line-height: 1.5em; }
+
+table,
+pre,
+img {
+  max-width: 100%;
+  margin: 2em 0; }
+
+::-webkit-scrollbar {
+  display: none; }
 
 #dummy-input {
   display: flex;
@@ -135,18 +152,8 @@ body,
   padding: 0;
   margin: 0;
   border: none; }
-
-table,
-pre {
-  box-shadow: 0 0 1em #666; }
-
-table,
-pre,
-img {
-  max-width: 100%;
-  margin: 2em 0; }
 </style>
-<script>const data = [{"title":"About","author":"Gilad Kutiel\n","path":"notes/About.md","src":"# About\n\nnpmnotes is a command line note organizer.\n\n![](npmnotes.gif)\n\n## How it works?\n\nYou take your notes with your favorite text editor \n(currently only .md and .td files are supported) \nand synchronize them with your favorite synchronization service (a git repository is a good choice).\nnpmnotes takes your notes and convert them into a web app that you can make public or use locally (just like the one you are at right now).\n\n","html":"<h1>About</h1>\n<p>npmnotes is a command line note organizer.</p>\n<p><img src=\"npmnotes.gif\" alt=\"\"></p>\n<h2>How it works?</h2>\n<p>You take your notes with your favorite text editor\n(currently only .md and .td files are supported)\nand synchronize them with your favorite synchronization service (a git repository is a good choice).\nnpmnotes takes your notes and convert them into a web app that you can make public or use locally (just like the one you are at right now).</p>\n","time":1534240366953,"selected":false},{"title":"Installation","author":"Gilad Kutiel\n","path":"notes/Installation.md","src":"# Installation\n\nMake sure you have [Node.js](https://nodejs.org/en/) installed, then just install it globally with npm:\n\n```bash\nnpm i -g npmnotes\n```\n\n","html":"<h1>Installation</h1>\n<p>Make sure you have <a href=\"https://nodejs.org/en/\">Node.js</a> installed, then just install it globally with npm:</p>\n<pre class='language-bash'>npm i -g npmnotes\n</pre>\n","time":1534240366273,"selected":false},{"title":"Usage","author":"Gilad Kutiel\n","path":"notes/Usage.md","src":"# Usage\n\nYou write all your notes under some folder (and sub-folders) of your choice, \nthen you run np on this folder and specify an output folder. \nYou can also run npmnotes in watch mode.\n\n```plain\n  Usage: npmnotes [options] <source folder> <output folder>                 \n                                                                            \n  Options:                                                                  \n                                                                            \n    -w --watch  watch mode - live update every time you write or edit a note\n    -t --title  the title of the generated page                             \n    -h, --help  output usage information                                    \n```","html":"<h1>Usage</h1>\n<p>You write all your notes under some folder (and sub-folders) of your choice,\nthen you run np on this folder and specify an output folder.\nYou can also run npmnotes in watch mode.</p>\n<pre class='language-plain'>  Usage: npmnotes [options] &lt;source folder> &lt;output folder>                 \n                                                                            \n  Options:                                                                  \n                                                                            \n    -w --watch  watch mode - live update every time you write or edit a note\n    -t --title  the title of the generated page                             \n    -h, --help  output usage information                                    \n</pre>\n","time":1534240365837,"selected":false},{"title":"Shortcuts","author":"Gilad Kutiel\n","path":"notes/Shortcuts.md","src":"# Keyboard Shortcuts\n\nYou can try the following keyboard shortcuts right here.\n\n| Key       | Action                |\n|-----------|-----------------------|\n| `/`       | Start searching       |\n| `Enter`   | Clear search results  |\n| `ESC`     | Exit the search box   |\n| `j`       | Next note             |\n| `k`       | Previous Note         |","html":"<h1>Keyboard Shortcuts</h1>\n<p>You can try the following keyboard shortcuts right here.</p>\n<table>\n<thead>\n<tr>\n<th>Key</th>\n<th>Action</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>/</code></td>\n<td>Start searching</td>\n</tr>\n<tr>\n<td><code>Enter</code></td>\n<td>Clear search results</td>\n</tr>\n<tr>\n<td><code>ESC</code></td>\n<td>Exit the search box</td>\n</tr>\n<tr>\n<td><code>j</code></td>\n<td>Next note</td>\n</tr>\n<tr>\n<td><code>k</code></td>\n<td>Previous Note</td>\n</tr>\n</tbody>\n</table>\n","time":1534240365369,"selected":false},{"title":"TexDown","author":"Gilad Kutiel\n","path":"notes/TexDown.td","src":"# $\\TeX$Down\n\nnpmnotes understand [TexDown](https://www.npmjs.com/package/texdown) \n(notes must have a .td extension).\n\nThis allows you to write math expressions like this\n\n$$\nF = G\\frac{m_1 m_2}{r^2}\n$$\n\nand draw graphics like this\n\n\\begin{tikzpicture}\n\n\\foreach[count=\\i] \\s in {60,120,...,360}{\n  \\node[draw, circle](\\i) at (\\s:3) {$\\i$};\n}\n\\foreach \\i in {1,...,6}{\n  \\foreach \\j in {1,...,6}{\n    \\draw (\\i) to[bend right] (\\j);\n  }\n}\n\n\\end{tikzpicture}\n\\center\n","html":"<div><h1><span dir='auto'><span class=\"katex\"><span class=\"katex-mathml\"><math><semantics><mrow><mtext>T</mtext><mtext>&NegativeThinSpace;</mtext><mpadded voffset=\"-0.5ex\"><mtext>E</mtext></mpadded><mspace width=\"-0.125em\"/><mtext>X</mtext></mrow><annotation encoding=\"application/x-tex\">\\TeX</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.89883em;vertical-align:-0.2155em;\"></span><span class=\"mord text\"><span class=\"mord textrm\">T</span><span class=\"mspace\" style=\"margin-right:-0.1667em;\"></span><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.46782999999999997em;\"><span style=\"top:-2.7845em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord text\"><span class=\"mord textrm\">E</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2155em;\"><span></span></span></span></span><span class=\"mspace\" style=\"margin-right:-0.125em;\"></span><span class=\"mord textrm\">X</span></span></span></span></span></span><span>Down</span></h1><p><span>npmnotes understand </span><a href='https://www.npmjs.com/package/texdown'>TexDown</a><span> </span><span>(notes must have a .td extension).</span></p><p><span>This allows you to write math expressions like this</span></p><span dir='auto'><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math><semantics><mrow><mi>F</mi><mo>=</mo><mi>G</mi><mfrac><mrow><msub><mi>m</mi><mn>1</mn></msub><msub><mi>m</mi><mn>2</mn></msub></mrow><msup><mi>r</mi><mn>2</mn></msup></mfrac></mrow><annotation encoding=\"application/x-tex\">\nF = G\\frac{m_1 m_2}{r^2}\n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.68333em;vertical-align:0em;\"></span><span class=\"mord mathit\" style=\"margin-right:0.13889em;\">F</span><span class=\"mspace\" style=\"margin-right:0.2777777777777778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2777777777777778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:1.7935599999999998em;vertical-align:-0.686em;\"></span><span class=\"mord mathit\">G</span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:1.1075599999999999em;\"><span style=\"top:-2.314em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathit\" style=\"margin-right:0.02778em;\">r</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.740108em;\"><span style=\"top:-2.9890000000000003em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span></span></span></span></span></span></span><span style=\"top:-3.23em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width:0.04em;\"></span></span><span style=\"top:-3.677em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathit\">m</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.30110799999999993em;\"><span style=\"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">1</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mord\"><span class=\"mord mathit\">m</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.30110799999999993em;\"><span style=\"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.686em;\"><span></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span></span></span></span></span></span><p><span>and draw graphics like this</span></p><img alt='tikz' src='https://tikz.men/%5Cbegin%7Btikzpicture%7D%0A%0A%5Cforeach%5Bcount%3D%5Ci%5D%20%5Cs%20in%20%7B60%2C120%2C...%2C360%7D%7B%0A%20%20%5Cnode%5Bdraw%2C%20circle%5D(%5Ci)%20at%20(%5Cs%3A3)%20%7B%24%5Ci%24%7D%3B%0A%7D%0A%5Cforeach%20%5Ci%20in%20%7B1%2C...%2C6%7D%7B%0A%20%20%5Cforeach%20%5Cj%20in%20%7B1%2C...%2C6%7D%7B%0A%20%20%20%20%5Cdraw%20(%5Ci)%20to%5Bbend%20right%5D%20(%5Cj)%3B%0A%20%20%7D%0A%7D%0A%0A%5Cend%7Btikzpicture%7D'/><div align='center'></div></div>","time":1534240364541,"selected":false},{"title":"Work in Progress","author":"","path":"notes/Work in Progress.md","src":"# a Work in Progress\n\nThis is a very early stage, many more planned features are in the process queue.\nIf you have a feature idea or any suggestion please feel free to [tell me about it](https://github.com/npmnotes/npmnotes/issues).","html":"<h1>a Work in Progress</h1>\n<p>This is a very early stage, many more planned features are in the process queue.\nIf you have a feature idea or any suggestion please feel free to <a href=\"https://github.com/npmnotes/npmnotes/issues\">tell me about it</a>.</p>\n","time":1534240362489,"selected":false}]</script>
+<script>const data = [{"title":"About","author":"Gilad Kutiel\n","path":"notes/About.md","src":"# About\n\nnpmnotes is a command line note organizer.\n\n![](npmnotes.gif)\n\n## How it works?\n\nYou take your notes with your favorite text editor \n(currently only .md and .td files are supported) \nand synchronize them with your favorite synchronization service (a git repository is a good choice).\nnpmnotes takes your notes and convert them into a web app that you can make public or use locally (just like the one you are at right now).\n\n","html":"<h1>About</h1>\n<p>npmnotes is a command line note organizer.</p>\n<p><img src=\"npmnotes.gif\" alt=\"\"></p>\n<h2>How it works?</h2>\n<p>You take your notes with your favorite text editor\n(currently only .md and .td files are supported)\nand synchronize them with your favorite synchronization service (a git repository is a good choice).\nnpmnotes takes your notes and convert them into a web app that you can make public or use locally (just like the one you are at right now).</p>\n","time":1534245721830,"selected":false},{"title":"Installation","author":"Gilad Kutiel\n","path":"notes/Installation.md","src":"# Installation\n\nMake sure you have [Node.js](https://nodejs.org/en/) installed, then just install it globally with npm:\n\n```bash\nnpm i -g npmnotes\n```\n\n","html":"<h1>Installation</h1>\n<p>Make sure you have <a href=\"https://nodejs.org/en/\">Node.js</a> installed, then just install it globally with npm:</p>\n<pre class='language-bash'>npm i -g npmnotes\n</pre>\n","time":1534245721170,"selected":false},{"title":"Usage","author":"Gilad Kutiel\n","path":"notes/Usage.md","src":"# Usage\n\nYou write all your notes under some folder (and sub-folders) of your choice, \nthen you run np on this folder and specify an output folder. \nYou can also run npmnotes in watch mode.\n\n```plain\n  Usage: npmnotes [options] <source folder> <output folder>                 \n                                                                            \n  Options:                                                                  \n                                                                            \n    -w --watch  watch mode - live update every time you write or edit a note\n    -t --title  the title of the generated page                             \n    -h, --help  output usage information                                    \n```","html":"<h1>Usage</h1>\n<p>You write all your notes under some folder (and sub-folders) of your choice,\nthen you run np on this folder and specify an output folder.\nYou can also run npmnotes in watch mode.</p>\n<pre class='language-plain'>  Usage: npmnotes [options] &lt;source folder> &lt;output folder>                 \n                                                                            \n  Options:                                                                  \n                                                                            \n    -w --watch  watch mode - live update every time you write or edit a note\n    -t --title  the title of the generated page                             \n    -h, --help  output usage information                                    \n</pre>\n","time":1534245720690,"selected":false},{"title":"Shortcuts","author":"Gilad Kutiel\n","path":"notes/Shortcuts.md","src":"# Keyboard Shortcuts\n\nYou can try the following keyboard shortcuts right here.\n\n| Key       | Action                |\n|-----------|-----------------------|\n| `/`       | Start searching       |\n| `Enter`   | Clear search results  |\n| `ESC`     | Exit the search box   |\n| `j`       | Next note             |\n| `k`       | Previous Note         |","html":"<h1>Keyboard Shortcuts</h1>\n<p>You can try the following keyboard shortcuts right here.</p>\n<table>\n<thead>\n<tr>\n<th>Key</th>\n<th>Action</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>/</code></td>\n<td>Start searching</td>\n</tr>\n<tr>\n<td><code>Enter</code></td>\n<td>Clear search results</td>\n</tr>\n<tr>\n<td><code>ESC</code></td>\n<td>Exit the search box</td>\n</tr>\n<tr>\n<td><code>j</code></td>\n<td>Next note</td>\n</tr>\n<tr>\n<td><code>k</code></td>\n<td>Previous Note</td>\n</tr>\n</tbody>\n</table>\n","time":1534245720278,"selected":false},{"title":"TexDown","author":"Gilad Kutiel\n","path":"notes/TexDown.td","src":"# $\\TeX$Down\n\nnpmnotes understand [TexDown](https://www.npmjs.com/package/texdown) \n(notes must have a .td extension).\n\nThis allows you to write math expressions like this\n\n$$\nF = G\\frac{m_1 m_2}{r^2}\n$$\n\nand draw graphics like this\n\n\\begin{tikzpicture}\n\n\\foreach[count=\\i] \\s in {60,120,...,360}{\n  \\node[draw, circle](\\i) at (\\s:3) {$\\i$};\n}\n\\foreach \\i in {1,...,6}{\n  \\foreach \\j in {1,...,6}{\n    \\draw (\\i) to[bend right] (\\j);\n  }\n}\n\n\\end{tikzpicture}\n","html":"<div><h1><span dir='auto'><span class=\"katex\"><span class=\"katex-mathml\"><math><semantics><mrow><mtext>T</mtext><mtext>&NegativeThinSpace;</mtext><mpadded voffset=\"-0.5ex\"><mtext>E</mtext></mpadded><mspace width=\"-0.125em\"/><mtext>X</mtext></mrow><annotation encoding=\"application/x-tex\">\\TeX</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.89883em;vertical-align:-0.2155em;\"></span><span class=\"mord text\"><span class=\"mord textrm\">T</span><span class=\"mspace\" style=\"margin-right:-0.1667em;\"></span><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.46782999999999997em;\"><span style=\"top:-2.7845em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord text\"><span class=\"mord textrm\">E</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2155em;\"><span></span></span></span></span><span class=\"mspace\" style=\"margin-right:-0.125em;\"></span><span class=\"mord textrm\">X</span></span></span></span></span></span><span>Down</span></h1><p><span>npmnotes understand </span><a href='https://www.npmjs.com/package/texdown'>TexDown</a><span> </span><span>(notes must have a .td extension).</span></p><p><span>This allows you to write math expressions like this</span></p><span dir='auto'><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math><semantics><mrow><mi>F</mi><mo>=</mo><mi>G</mi><mfrac><mrow><msub><mi>m</mi><mn>1</mn></msub><msub><mi>m</mi><mn>2</mn></msub></mrow><msup><mi>r</mi><mn>2</mn></msup></mfrac></mrow><annotation encoding=\"application/x-tex\">\nF = G\\frac{m_1 m_2}{r^2}\n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.68333em;vertical-align:0em;\"></span><span class=\"mord mathit\" style=\"margin-right:0.13889em;\">F</span><span class=\"mspace\" style=\"margin-right:0.2777777777777778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2777777777777778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:1.7935599999999998em;vertical-align:-0.686em;\"></span><span class=\"mord mathit\">G</span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:1.1075599999999999em;\"><span style=\"top:-2.314em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathit\" style=\"margin-right:0.02778em;\">r</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.740108em;\"><span style=\"top:-2.9890000000000003em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span></span></span></span></span></span></span><span style=\"top:-3.23em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width:0.04em;\"></span></span><span style=\"top:-3.677em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathit\">m</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.30110799999999993em;\"><span style=\"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">1</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mord\"><span class=\"mord mathit\">m</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.30110799999999993em;\"><span style=\"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.686em;\"><span></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span></span></span></span></span></span><p><span>and draw graphics like this</span></p><img alt='tikz' src='https://tikz.men/%5Cbegin%7Btikzpicture%7D%0A%0A%5Cforeach%5Bcount%3D%5Ci%5D%20%5Cs%20in%20%7B60%2C120%2C...%2C360%7D%7B%0A%20%20%5Cnode%5Bdraw%2C%20circle%5D(%5Ci)%20at%20(%5Cs%3A3)%20%7B%24%5Ci%24%7D%3B%0A%7D%0A%5Cforeach%20%5Ci%20in%20%7B1%2C...%2C6%7D%7B%0A%20%20%5Cforeach%20%5Cj%20in%20%7B1%2C...%2C6%7D%7B%0A%20%20%20%20%5Cdraw%20(%5Ci)%20to%5Bbend%20right%5D%20(%5Cj)%3B%0A%20%20%7D%0A%7D%0A%0A%5Cend%7Btikzpicture%7D'/></div>","time":1534245719822,"selected":false},{"title":"Work in Progress","author":"","path":"notes/Work in Progress.md","src":"# a Work in Progress\n\nThis is a very early stage, many more planned features are in the process queue.\nIf you have a feature idea or any suggestion please feel free to [tell me about it](https://github.com/npmnotes/npmnotes/issues).","html":"<h1>a Work in Progress</h1>\n<p>This is a very early stage, many more planned features are in the process queue.\nIf you have a feature idea or any suggestion please feel free to <a href=\"https://github.com/npmnotes/npmnotes/issues\">tell me about it</a>.</p>\n","time":1534245719010,"selected":false}]</script>
 <script type="module">var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
 function unwrapExports (x) {
@@ -1957,11 +1964,25 @@ document.addEventListener('DOMContentLoaded', () => {
             scroll(notes[0].path);
     });
     function scroll(path) {
-        document.querySelectorAll(`[data-key='${path}']`)
-            .forEach(e => e.scrollIntoView({
+        function e(q) {
+            return document.querySelector(q);
+        }
+        const top = e(`.note-preview[data-key='${path}']`).clientTop;
+        console.log(top);
+        leftRoot.scrollTo({
             behavior: 'smooth',
-            block: 'center'
-        }));
+            top: top
+        });
+        // e(`.note-preview[data-key='${path}']`).scrollIntoView({
+        //     behavior: 'smooth'
+        //     , block: 'start'
+        // })
+        // setTimeout(() => {
+        //     e(`.note-view[data-key='${path}']`).scrollIntoView({
+        //         behavior: 'smooth'
+        //         , block: 'start'
+        //     })
+        // }, 200)
     }
     function clearSearch() {
         search.value = '';
@@ -2020,15 +2041,18 @@ export default index;
 
 <body>
 <input id='dummy-input' type="text">
-<div id='main' class='flex'>
-<div id='left'>
-<div id='search-box' class='flex'>
-<i class='fa fa-search flex-align-center'></i>
-<input id='search' type="search" class='flex-grow' />
+
+
+<div id='main' class='row'>
+    <div id='left' class='column'>
+        <div id='search-box' class='row'>
+            <i class='fa fa-search flex-align-center'></i>
+            <input id='search' type="search" class='flex-grow' />
+        </div>
+        <div id='left-root'></div>
+    </div>
+    <div id='right-root' class='flex-grow'></div>
 </div>
-<div id='left-root'></div>
-</div>
-<div id='right-root' class='flex-grow'></div>
-</div>
+
 </body>
 </html>
