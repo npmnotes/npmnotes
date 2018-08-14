@@ -2,8 +2,10 @@ import MarkDownIt from 'markdown-it';
 import path from 'path';
 import Prism from 'prismjs';
 import { types } from './types';
+import { TexDown } from './TexDown';
+import { texDown } from 'texdown';
 
-export class CompilerMd implements types.Compiler {
+export class Compiler implements types.Compiler {
 
     loadLang(lang: string) {
         try {
@@ -14,18 +16,23 @@ export class CompilerMd implements types.Compiler {
         }
 
     }
+
     readonly markDownIt = new MarkDownIt({
         highlight: (code, lang) => {
             return `<pre class='language-${lang}'>${Prism.highlight(code, this.loadLang(lang || 'bash'))}</pre>`
         }
     })
 
-    accept(file: string): boolean {
-        return path.extname(file) === '.md'
+    accept(ext: string): boolean {
+        return ['.md', '.td'].includes(ext)
     }
 
-    html(src: string): string {
-        return this.markDownIt.render(src)
+    html(src: string, ext: string): string {
+        if (ext === '.md')
+            return this.markDownIt.render(src)
+        const html = new TexDown()
+        texDown(src, html)
+        return html.html
     }
 }
 

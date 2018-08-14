@@ -4,6 +4,8 @@
 @import url('https://use.fontawesome.com/releases/v5.2.0/css/all.css');
 // SYNTAX
 @import url("https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-tomorrow.min.css");
+// KATEX
+@import url("https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css");
 // 
 @import 'search-box';
 @import 'note';
@@ -24,6 +26,8 @@ body {
 body {
     color: $color-body;
     font-family: 'Work Sans', sans-serif;
+    font-size: 105%;
+    line-height: 140%;
 }
 
 html,
@@ -65,9 +69,14 @@ body,
 }
 
 table,
-img,
 pre {
     box-shadow: 0 0 1em #666;
+}
+
+
+table,
+pre,
+img {
     max-width: 100%;
     margin: 2em 0;
 }

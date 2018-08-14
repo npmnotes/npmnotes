@@ -8,8 +8,8 @@ export namespace types {
     }
 
     export interface Compiler {
-        accept(file: string): boolean
-        html(src: string): string
+        accept(ext: string): boolean
+        html(src: string, ext: string): string
     }
 
 

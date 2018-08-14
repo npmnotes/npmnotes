@@ -6,7 +6,7 @@ import prog from 'commander';
 import fs from 'fs-extra';
 import nodeWatch from 'node-watch';
 import path from 'path';
-import { CompilerMd } from "./CompilerMd";
+import { Compiler } from "./Compiler";
 import html from './html';
 import { types } from './types';
 
@@ -27,7 +27,7 @@ type to<T> = (file: types.File) => T | undefined
 const toAsset: (compiler: types.Compiler) => to<types.Asset> = compiler => file => {
     if (
         file.stat.isDirectory()
-        || compiler.accept(file.path)
+        || compiler.accept(path.extname(file.path))
     ) return undefined
 
     return {
@@ -36,17 +36,18 @@ const toAsset: (compiler: types.Compiler) => to<types.Asset> = compiler => file 
 }
 
 const toNote = (compiler: types.Compiler) => (file: types.File) => {
-    if (!compiler.accept(file.path)) return undefined
+    if (!compiler.accept(path.extname(file.path))) return undefined
 
     logNote(file.path)
     const src = fs.readFileSync(file.path).toString()
+    const ext = path.extname(file.path)
 
     return {
-        title: path.basename(file.path, path.extname(file.path))
+        title: path.basename(file.path, ext)
         , author: author(file.path)
         , path: file.path
         , src: src
-        , html: compiler.html(src)
+        , html: compiler.html(src, ext)
         , time: file.stat.mtime.getTime()
         , selected: false
     }
@@ -172,7 +173,7 @@ prog
             inDir: inDir
             , outDir: outDir
             , title: prog.title
-            , compiler: new CompilerMd()
+            , compiler: new Compiler()
         }
 
         compile(options)
