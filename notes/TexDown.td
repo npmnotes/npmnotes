@@ -1,6 +1,6 @@
 # $\TeX$Down
 
-npmnotes understand [TexDown](https://www.npmjs.com/package/texdown) 
+npmnotes understands [TexDown](https://www.npmjs.com/package/texdown) 
 (notes must have a .td extension).
 
 This allows you to write math expressions like this
