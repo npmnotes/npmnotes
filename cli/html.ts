@@ -30,9 +30,9 @@ export default function html(data: {
             <i class='fa fa-search flex-align-center'></i>
             <input id='search' type="search" class='flex-grow' />
         </div>
-        <div id='left-root'></div>
+        <div id='left-root' class='flex-grow scroll'></div>
     </div>
-    <div id='right-root' class='flex-grow'></div>
+    <div id='right-root' class='flex-grow scroll'></div>
 </div>
 
 </body>

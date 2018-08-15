@@ -5,7 +5,7 @@
 // SYNTAX
 @import url("https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-tomorrow.min.css");
 // KATEX
-@import url("https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css");
+// @import url("https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css");
 // 
 @import 'search-box';
 @import 'note';
@@ -27,7 +27,11 @@ body {
 body {
     color: $color-body;
     font-family: 'Work Sans', sans-serif;
-    font-size: 105%;
+    font-size: 1.1em;
+}
+
+input#search {
+    display: block;
 }
 
 html,
@@ -41,16 +45,12 @@ body,
     height: 100%;
     padding: 1em;
     padding-bottom: 0;
-}
-
-#left-root,
-#right-root {
-    overflow-y: scroll;
-}
-
-
-#left-root {
     min-width: 25em;
+}
+
+.scroll {
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #right-root {
@@ -61,7 +61,6 @@ table,
 pre {
     box-shadow: 0 0 1em #666;
 }
-
 
 p {
     line-height: 1.5em;
@@ -84,4 +83,8 @@ img {
     padding: 0;
     margin: 0;
     border: none;
+}
+
+.katex {
+    position: relative;
 }

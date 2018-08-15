@@ -6,17 +6,13 @@ export namespace Dom {
     export function createElement(
         tagName: string
         , attributes: Attributes | null
-        , ...kids: any[]): any {
+        , ...kids: any[]): HTMLElement {
         const e = document.createElement(tagName)
 
         if (attributes !== null) {
             Object.entries(attributes).forEach(([key, val]) => {
                 e.setAttribute(key, String(val))
             })
-
-            if (attributes['className']) {
-                e.className = String(attributes['className'])
-            }
         }
 
         kids

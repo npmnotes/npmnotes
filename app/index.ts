@@ -27,30 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }()
 
     function scroll(preview: Element) {
+        function e(q: string) {
+            return document.querySelector(q) as Element
+        }
+
         preview.scrollIntoView({
             behavior: 'smooth'
         })
-        // function e(q: string) {
-        //     return document.querySelector(q) as Element
-        // }
 
-        // const top = e(`.note-preview[data-key='${path}']`).clientTop
-        // console.log(top)
-        // eLeftRoot.scrollTo({
-        //     behavior: 'smooth'
-        //     , top: top
-        // })
-        // e(`.note-preview[data-key='${path}']`).scrollIntoView({
-        //     behavior: 'smooth'
-        //     , block: 'start'
-        // })
-
-        // setTimeout(() => {
-        //     e(`.note-view[data-key='${path}']`).scrollIntoView({
-        //         behavior: 'smooth'
-        //         , block: 'start'
-        //     })
-        // }, 200)
+        setTimeout(() => {
+            e(`.note-view[data-key='${preview.getAttribute('data-key')}']`)
+                .scrollIntoView({
+                    behavior: 'smooth'
+                    , block: 'start'
+                })
+        }, 200)
     }
 
     function clearSearch() {

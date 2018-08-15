@@ -10,27 +10,29 @@ export default class DomNotes {
         return (
             <div
                 data-key={note.path}
-                className='note-preview'
+                class='note-preview'
                 data-selected={false}
             >
-                <div className='note-title'>{note.title}</div>
-                <div className='note-date'>
+                <div class='note-title'>{note.title}</div>
+                <div class='note-date'>
                     {new Date(note.time).toLocaleString()}
                 </div>
-                <div className='note-author'>{note.author}</div>
+                <div class='note-author'>{note.author}</div>
             </div>
         )
     }
 
     private eView(note: types.Note): HTMLElement {
-        return (
-            <div></div>
-        )
-
+        const view = <div class='note-view' data-key={note.path} />
+        view.innerHTML = note.html
+        return view
     }
 
     constructor(notes: types.Note[]) {
-        notes.forEach(note => this.ePreviews.appendChild(this.ePreview(note)))
+        notes.forEach(note => {
+            this.ePreviews.appendChild(this.ePreview(note))
+            this.eViews.appendChild(this.eView(note))
+        })
     }
 
     select(i: number, b: boolean) {

@@ -23,4 +23,3 @@ and draw graphics like this
 }
 
 \end{tikzpicture}
-\center
