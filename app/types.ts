@@ -24,7 +24,6 @@ export namespace types {
         time: number
         src: string
         html: string
-        selected: boolean
         tags?: string[]
     }
 }

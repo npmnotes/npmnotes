@@ -3,9 +3,9 @@
         "target": "es2017",
         "sourceMap": true,
         "module": "commonjs",
-        "jsx": "react",
-        "jsxFactory": "h",
         "strict": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "jsx": "react", // use the React mode, so call the factory
+        "jsxFactory": "Dom.createElement" // The name of the factory function        
     }
 }

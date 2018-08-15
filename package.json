@@ -3,7 +3,7 @@
     "version": "0.0.2",
     "description": "",
     "main": "",
-    "author": "",
+    "author": "Gilad Kutiel",
     "license": "ISC",
     "scripts": {
         "sass": "node-sass app/index.scss dist/index.css",
@@ -17,7 +17,6 @@
         "@types/prismjs": "^1.9.0",
         "fuse.js": "^3.2.1",
         "node-sass": "^4.9.2",
-        "preact": "^8.3.0",
         "rollup": "^0.64.1",
         "rollup-plugin-commonjs": "^9.1.5",
         "rollup-plugin-node-resolve": "^3.3.0",
