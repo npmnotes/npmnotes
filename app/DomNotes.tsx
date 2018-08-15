@@ -37,6 +37,7 @@ export default class DomNotes {
 
     select(i: number, b: boolean) {
         const kid = this.ePreviews.childNodes[i] as HTMLElement
+        if (!kid) return undefined
         kid.setAttribute('data-selected', String(b))
         return kid
     }

@@ -8,6 +8,7 @@
 <style>@import url("https://fonts.googleapis.com/css?family=Work+Sans");
 @import url("https://use.fontawesome.com/releases/v5.2.0/css/all.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-tomorrow.min.css");
+@import url("https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css");
 #search-box {
   border: 1px solid #D8DEE9;
   border-radius: .2em;
@@ -156,7 +157,7 @@ img {
 .katex {
   position: relative; }
 </style>
-<script>const data = [{"title":"About","author":"Gilad Kutiel\n","path":"notes/About.md","src":"# About\n\nnpmnotes is a command line note organizer.\n\n![](npmnotes.gif)\n\n## How it works?\n\nYou take your notes with your favorite text editor \n(currently only .md and .td files are supported) \nand synchronize them with your favorite synchronization service (a git repository is a good choice).\nnpmnotes takes your notes and convert them into a web app that you can make public or use locally (just like the one you are at right now).\n\n","html":"<h1>About</h1>\n<p>npmnotes is a command line note organizer.</p>\n<p><img src=\"npmnotes.gif\" alt=\"\"></p>\n<h2>How it works?</h2>\n<p>You take your notes with your favorite text editor\n(currently only .md and .td files are supported)\nand synchronize them with your favorite synchronization service (a git repository is a good choice).\nnpmnotes takes your notes and convert them into a web app that you can make public or use locally (just like the one you are at right now).</p>\n","time":1534353858010,"selected":false},{"title":"Installation","author":"Gilad Kutiel\n","path":"notes/Installation.md","src":"# Installation\n\nMake sure you have [Node.js](https://nodejs.org/en/) installed, then just install it globally with npm:\n\n```bash\nnpm i -g npmnotes\n```\n\n","html":"<h1>Installation</h1>\n<p>Make sure you have <a href=\"https://nodejs.org/en/\">Node.js</a> installed, then just install it globally with npm:</p>\n<pre class='language-bash'>npm i -g npmnotes\n</pre>\n","time":1534353857074,"selected":false},{"title":"Shortcuts","author":"Gilad Kutiel\n","path":"notes/Shortcuts.md","src":"# Keyboard Shortcuts\n\nYou can try the following keyboard shortcuts right here.\n\n| Key       | Action                |\n|-----------|-----------------------|\n| `/`       | Start searching       |\n| `Enter`   | Clear search results  |\n| `ESC`     | Exit the search box   |\n| `j`       | Next note             |\n| `k`       | Previous Note         |","html":"<h1>Keyboard Shortcuts</h1>\n<p>You can try the following keyboard shortcuts right here.</p>\n<table>\n<thead>\n<tr>\n<th>Key</th>\n<th>Action</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>/</code></td>\n<td>Start searching</td>\n</tr>\n<tr>\n<td><code>Enter</code></td>\n<td>Clear search results</td>\n</tr>\n<tr>\n<td><code>ESC</code></td>\n<td>Exit the search box</td>\n</tr>\n<tr>\n<td><code>j</code></td>\n<td>Next note</td>\n</tr>\n<tr>\n<td><code>k</code></td>\n<td>Previous Note</td>\n</tr>\n</tbody>\n</table>\n","time":1534353856546,"selected":false},{"title":"Usage","author":"Gilad Kutiel\n","path":"notes/Usage.md","src":"# Usage\n\nYou write all your notes under some folder (and sub-folders) of your choice, \nthen you run np on this folder and specify an output folder. \nYou can also run npmnotes in watch mode.\n\n```plain\n  Usage: npmnotes [options] <source folder> <output folder>                 \n                                                                            \n  Options:                                                                  \n                                                                            \n    -w --watch  watch mode - live update every time you write or edit a note\n    -t --title  the title of the generated page                             \n    -h, --help  output usage information                                    \n```","html":"<h1>Usage</h1>\n<p>You write all your notes under some folder (and sub-folders) of your choice,\nthen you run np on this folder and specify an output folder.\nYou can also run npmnotes in watch mode.</p>\n<pre class='language-plain'>  Usage: npmnotes [options] &lt;source folder> &lt;output folder>                 \n                                                                            \n  Options:                                                                  \n                                                                            \n    -w --watch  watch mode - live update every time you write or edit a note\n    -t --title  the title of the generated page                             \n    -h, --help  output usage information                                    \n</pre>\n","time":1534353855522,"selected":false},{"title":"Work in Progress","author":"","path":"notes/Work in Progress.md","src":"# a Work in Progress\n\nThis is a very early stage, many more planned features are in the process queue.\nIf you have a feature idea or any suggestion please feel free to [tell me about it](https://github.com/npmnotes/npmnotes/issues).","html":"<h1>a Work in Progress</h1>\n<p>This is a very early stage, many more planned features are in the process queue.\nIf you have a feature idea or any suggestion please feel free to <a href=\"https://github.com/npmnotes/npmnotes/issues\">tell me about it</a>.</p>\n","time":1534353854886,"selected":false}]</script>
+<script>const data = [{"title":"About","author":"Gilad Kutiel\n","path":"notes/About.md","src":"# About\n\nnpmnotes is a command line note organizer.\n\n![](npmnotes.gif)\n\n## How it works?\n\nYou take your notes with your favorite text editor \n(currently only .md and .td files are supported) \nand synchronize them with your favorite synchronization service (a git repository is a good choice).\nnpmnotes takes your notes and convert them into a web app that you can make public or use locally (just like the one you are at right now).\n\n","html":"<h1>About</h1>\n<p>npmnotes is a command line note organizer.</p>\n<p><img src=\"npmnotes.gif\" alt=\"\"></p>\n<h2>How it works?</h2>\n<p>You take your notes with your favorite text editor\n(currently only .md and .td files are supported)\nand synchronize them with your favorite synchronization service (a git repository is a good choice).\nnpmnotes takes your notes and convert them into a web app that you can make public or use locally (just like the one you are at right now).</p>\n","time":1534363601018,"selected":false},{"title":"Installation","author":"Gilad Kutiel\n","path":"notes/Installation.md","src":"# Installation\n\nMake sure you have [Node.js](https://nodejs.org/en/) installed, then just install it globally with npm:\n\n```bash\nnpm i -g npmnotes\n```\n\n","html":"<h1>Installation</h1>\n<p>Make sure you have <a href=\"https://nodejs.org/en/\">Node.js</a> installed, then just install it globally with npm:</p>\n<pre class='language-bash'>npm i -g npmnotes\n</pre>\n","time":1534363600146,"selected":false},{"title":"Shortcuts","author":"Gilad Kutiel\n","path":"notes/Shortcuts.md","src":"# Keyboard Shortcuts\n\nYou can try the following keyboard shortcuts right here.\n\n| Key       | Action                |\n|-----------|-----------------------|\n| `/`       | Start searching       |\n| `Enter`   | Clear search results  |\n| `ESC`     | Exit the search box   |\n| `j`       | Next note             |\n| `k`       | Previous Note         |","html":"<h1>Keyboard Shortcuts</h1>\n<p>You can try the following keyboard shortcuts right here.</p>\n<table>\n<thead>\n<tr>\n<th>Key</th>\n<th>Action</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>/</code></td>\n<td>Start searching</td>\n</tr>\n<tr>\n<td><code>Enter</code></td>\n<td>Clear search results</td>\n</tr>\n<tr>\n<td><code>ESC</code></td>\n<td>Exit the search box</td>\n</tr>\n<tr>\n<td><code>j</code></td>\n<td>Next note</td>\n</tr>\n<tr>\n<td><code>k</code></td>\n<td>Previous Note</td>\n</tr>\n</tbody>\n</table>\n","time":1534363599650,"selected":false},{"title":"TexDown","author":"Gilad Kutiel\n","path":"notes/TexDown.td","src":"# $\\TeX$Down\n\nnpmnotes understand [TexDown](https://www.npmjs.com/package/texdown) \n(notes must have a .td extension).\n\nThis allows you to write math expressions like this\n\n$$\nF = G\\frac{m_1 m_2}{r^2}\n$$\n\nand draw graphics like this\n\n\\begin{tikzpicture}\n\n\\foreach[count=\\i] \\s in {60,120,...,360}{\n  \\node[draw, circle](\\i) at (\\s:3) {$\\i$};\n}\n\\foreach \\i in {1,...,6}{\n  \\foreach \\j in {1,...,6}{\n    \\draw (\\i) to[bend right] (\\j);\n  }\n}\n\n\\end{tikzpicture}\n","html":"<div><h1><span dir='auto'><span class=\"katex\"><span class=\"katex-mathml\"><math><semantics><mrow><mtext>T</mtext><mtext>&NegativeThinSpace;</mtext><mpadded voffset=\"-0.5ex\"><mtext>E</mtext></mpadded><mspace width=\"-0.125em\"/><mtext>X</mtext></mrow><annotation encoding=\"application/x-tex\">\\TeX</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.89883em;vertical-align:-0.2155em;\"></span><span class=\"mord text\"><span class=\"mord textrm\">T</span><span class=\"mspace\" style=\"margin-right:-0.1667em;\"></span><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.46782999999999997em;\"><span style=\"top:-2.7845em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord text\"><span class=\"mord textrm\">E</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2155em;\"><span></span></span></span></span><span class=\"mspace\" style=\"margin-right:-0.125em;\"></span><span class=\"mord textrm\">X</span></span></span></span></span></span><span>Down</span></h1><p><span>npmnotes understand </span><a href='https://www.npmjs.com/package/texdown'>TexDown</a><span> </span><span>(notes must have a .td extension).</span></p><p><span>This allows you to write math expressions like this</span></p><span dir='auto'><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math><semantics><mrow><mi>F</mi><mo>=</mo><mi>G</mi><mfrac><mrow><msub><mi>m</mi><mn>1</mn></msub><msub><mi>m</mi><mn>2</mn></msub></mrow><msup><mi>r</mi><mn>2</mn></msup></mfrac></mrow><annotation encoding=\"application/x-tex\">\nF = G\\frac{m_1 m_2}{r^2}\n</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.68333em;vertical-align:0em;\"></span><span class=\"mord mathit\" style=\"margin-right:0.13889em;\">F</span><span class=\"mspace\" style=\"margin-right:0.2777777777777778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2777777777777778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:1.7935599999999998em;vertical-align:-0.686em;\"></span><span class=\"mord mathit\">G</span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:1.1075599999999999em;\"><span style=\"top:-2.314em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathit\" style=\"margin-right:0.02778em;\">r</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.740108em;\"><span style=\"top:-2.9890000000000003em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span></span></span></span></span></span></span><span style=\"top:-3.23em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width:0.04em;\"></span></span><span style=\"top:-3.677em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathit\">m</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.30110799999999993em;\"><span style=\"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">1</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mord\"><span class=\"mord mathit\">m</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.30110799999999993em;\"><span style=\"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.686em;\"><span></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span></span></span></span></span></span><p><span>and draw graphics like this</span></p><img alt='tikz' src='https://tikz.men/%5Cbegin%7Btikzpicture%7D%0A%0A%5Cforeach%5Bcount%3D%5Ci%5D%20%5Cs%20in%20%7B60%2C120%2C...%2C360%7D%7B%0A%20%20%5Cnode%5Bdraw%2C%20circle%5D(%5Ci)%20at%20(%5Cs%3A3)%20%7B%24%5Ci%24%7D%3B%0A%7D%0A%5Cforeach%20%5Ci%20in%20%7B1%2C...%2C6%7D%7B%0A%20%20%5Cforeach%20%5Cj%20in%20%7B1%2C...%2C6%7D%7B%0A%20%20%20%20%5Cdraw%20(%5Ci)%20to%5Bbend%20right%5D%20(%5Cj)%3B%0A%20%20%7D%0A%7D%0A%0A%5Cend%7Btikzpicture%7D'/></div>","time":1534363599210,"selected":false},{"title":"Usage","author":"Gilad Kutiel\n","path":"notes/Usage.md","src":"# Usage\n\nYou write all your notes under some folder (and sub-folders) of your choice, \nthen you run np on this folder and specify an output folder. \nYou can also run npmnotes in watch mode.\n\n```plain\n  Usage: npmnotes [options] <source folder> <output folder>                 \n                                                                            \n  Options:                                                                  \n                                                                            \n    -w --watch  watch mode - live update every time you write or edit a note\n    -t --title  the title of the generated page                             \n    -h, --help  output usage information                                    \n```","html":"<h1>Usage</h1>\n<p>You write all your notes under some folder (and sub-folders) of your choice,\nthen you run np on this folder and specify an output folder.\nYou can also run npmnotes in watch mode.</p>\n<pre class='language-plain'>  Usage: npmnotes [options] &lt;source folder> &lt;output folder>                 \n                                                                            \n  Options:                                                                  \n                                                                            \n    -w --watch  watch mode - live update every time you write or edit a note\n    -t --title  the title of the generated page                             \n    -h, --help  output usage information                                    \n</pre>\n","time":1534363598754,"selected":false},{"title":"Work in Progress","author":"","path":"notes/Work in Progress.md","src":"# a Work in Progress\n\nThis is a very early stage, many more planned features are in the process queue.\nIf you have a feature idea or any suggestion please feel free to [tell me about it](https://github.com/npmnotes/npmnotes/issues).","html":"<h1>a Work in Progress</h1>\n<p>This is a very early stage, many more planned features are in the process queue.\nIf you have a feature idea or any suggestion please feel free to <a href=\"https://github.com/npmnotes/npmnotes/issues\">tell me about it</a>.</p>\n","time":1534363598230,"selected":false}]</script>
 <script type="module">var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
 function unwrapExports (x) {
@@ -184,6 +185,988 @@ exports.debounce = debounce;
 
 unwrapExports(util);
 var util_1 = util.debounce;
+
+var fuse = createCommonjsModule(function (module, exports) {
+/*!
+ * Fuse.js v3.2.1 - Lightweight fuzzy-search (http://fusejs.io)
+ * 
+ * Copyright (c) 2012-2017 Kirollos Risk (http://kiro.me)
+ * All Rights Reserved. Apache Software License 2.0
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
+(function webpackUniversalModuleDefinition(root, factory) {
+	module.exports = factory();
+})(commonjsGlobal, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+module.exports = function (obj) {
+  return !Array.isArray ? Object.prototype.toString.call(obj) === '[object Array]' : Array.isArray(obj);
+};
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var bitapRegexSearch = __webpack_require__(5);
+var bitapSearch = __webpack_require__(7);
+var patternAlphabet = __webpack_require__(4);
+
+var Bitap = function () {
+  function Bitap(pattern, _ref) {
+    var _ref$location = _ref.location,
+        location = _ref$location === undefined ? 0 : _ref$location,
+        _ref$distance = _ref.distance,
+        distance = _ref$distance === undefined ? 100 : _ref$distance,
+        _ref$threshold = _ref.threshold,
+        threshold = _ref$threshold === undefined ? 0.6 : _ref$threshold,
+        _ref$maxPatternLength = _ref.maxPatternLength,
+        maxPatternLength = _ref$maxPatternLength === undefined ? 32 : _ref$maxPatternLength,
+        _ref$isCaseSensitive = _ref.isCaseSensitive,
+        isCaseSensitive = _ref$isCaseSensitive === undefined ? false : _ref$isCaseSensitive,
+        _ref$tokenSeparator = _ref.tokenSeparator,
+        tokenSeparator = _ref$tokenSeparator === undefined ? / +/g : _ref$tokenSeparator,
+        _ref$findAllMatches = _ref.findAllMatches,
+        findAllMatches = _ref$findAllMatches === undefined ? false : _ref$findAllMatches,
+        _ref$minMatchCharLeng = _ref.minMatchCharLength,
+        minMatchCharLength = _ref$minMatchCharLeng === undefined ? 1 : _ref$minMatchCharLeng;
+
+    _classCallCheck(this, Bitap);
+
+    this.options = {
+      location: location,
+      distance: distance,
+      threshold: threshold,
+      maxPatternLength: maxPatternLength,
+      isCaseSensitive: isCaseSensitive,
+      tokenSeparator: tokenSeparator,
+      findAllMatches: findAllMatches,
+      minMatchCharLength: minMatchCharLength
+    };
+
+    this.pattern = this.options.isCaseSensitive ? pattern : pattern.toLowerCase();
+
+    if (this.pattern.length <= maxPatternLength) {
+      this.patternAlphabet = patternAlphabet(this.pattern);
+    }
+  }
+
+  _createClass(Bitap, [{
+    key: 'search',
+    value: function search(text) {
+      if (!this.options.isCaseSensitive) {
+        text = text.toLowerCase();
+      }
+
+      // Exact match
+      if (this.pattern === text) {
+        return {
+          isMatch: true,
+          score: 0,
+          matchedIndices: [[0, text.length - 1]]
+        };
+      }
+
+      // When pattern length is greater than the machine word length, just do a a regex comparison
+      var _options = this.options,
+          maxPatternLength = _options.maxPatternLength,
+          tokenSeparator = _options.tokenSeparator;
+
+      if (this.pattern.length > maxPatternLength) {
+        return bitapRegexSearch(text, this.pattern, tokenSeparator);
+      }
+
+      // Otherwise, use Bitap algorithm
+      var _options2 = this.options,
+          location = _options2.location,
+          distance = _options2.distance,
+          threshold = _options2.threshold,
+          findAllMatches = _options2.findAllMatches,
+          minMatchCharLength = _options2.minMatchCharLength;
+
+      return bitapSearch(text, this.pattern, this.patternAlphabet, {
+        location: location,
+        distance: distance,
+        threshold: threshold,
+        findAllMatches: findAllMatches,
+        minMatchCharLength: minMatchCharLength
+      });
+    }
+  }]);
+
+  return Bitap;
+}();
+
+// let x = new Bitap("od mn war", {})
+// let result = x.search("Old Man's War")
+// console.log(result)
+
+module.exports = Bitap;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var isArray = __webpack_require__(0);
+
+var deepValue = function deepValue(obj, path, list) {
+  if (!path) {
+    // If there's no path left, we've gotten to the object we care about.
+    list.push(obj);
+  } else {
+    var dotIndex = path.indexOf('.');
+    var firstSegment = path;
+    var remaining = null;
+
+    if (dotIndex !== -1) {
+      firstSegment = path.slice(0, dotIndex);
+      remaining = path.slice(dotIndex + 1);
+    }
+
+    var value = obj[firstSegment];
+
+    if (value !== null && value !== undefined) {
+      if (!remaining && (typeof value === 'string' || typeof value === 'number')) {
+        list.push(value.toString());
+      } else if (isArray(value)) {
+        // Search each item in the array.
+        for (var i = 0, len = value.length; i < len; i += 1) {
+          deepValue(value[i], remaining, list);
+        }
+      } else if (remaining) {
+        // An object. Recurse further.
+        deepValue(value, remaining, list);
+      }
+    }
+  }
+
+  return list;
+};
+
+module.exports = function (obj, path) {
+  return deepValue(obj, path, []);
+};
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+module.exports = function () {
+  var matchmask = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var minMatchCharLength = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
+  var matchedIndices = [];
+  var start = -1;
+  var end = -1;
+  var i = 0;
+
+  for (var len = matchmask.length; i < len; i += 1) {
+    var match = matchmask[i];
+    if (match && start === -1) {
+      start = i;
+    } else if (!match && start !== -1) {
+      end = i - 1;
+      if (end - start + 1 >= minMatchCharLength) {
+        matchedIndices.push([start, end]);
+      }
+      start = -1;
+    }
+  }
+
+  // (i-1 - start) + 1 => i - start
+  if (matchmask[i - 1] && i - start >= minMatchCharLength) {
+    matchedIndices.push([start, i - 1]);
+  }
+
+  return matchedIndices;
+};
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+module.exports = function (pattern) {
+  var mask = {};
+  var len = pattern.length;
+
+  for (var i = 0; i < len; i += 1) {
+    mask[pattern.charAt(i)] = 0;
+  }
+
+  for (var _i = 0; _i < len; _i += 1) {
+    mask[pattern.charAt(_i)] |= 1 << len - _i - 1;
+  }
+
+  return mask;
+};
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var SPECIAL_CHARS_REGEX = /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g;
+
+module.exports = function (text, pattern) {
+  var tokenSeparator = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : / +/g;
+
+  var regex = new RegExp(pattern.replace(SPECIAL_CHARS_REGEX, '\\$&').replace(tokenSeparator, '|'));
+  var matches = text.match(regex);
+  var isMatch = !!matches;
+  var matchedIndices = [];
+
+  if (isMatch) {
+    for (var i = 0, matchesLen = matches.length; i < matchesLen; i += 1) {
+      var match = matches[i];
+      matchedIndices.push([text.indexOf(match), match.length - 1]);
+    }
+  }
+
+  return {
+    // TODO: revisit this score
+    score: isMatch ? 0.5 : 1,
+    isMatch: isMatch,
+    matchedIndices: matchedIndices
+  };
+};
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+module.exports = function (pattern, _ref) {
+  var _ref$errors = _ref.errors,
+      errors = _ref$errors === undefined ? 0 : _ref$errors,
+      _ref$currentLocation = _ref.currentLocation,
+      currentLocation = _ref$currentLocation === undefined ? 0 : _ref$currentLocation,
+      _ref$expectedLocation = _ref.expectedLocation,
+      expectedLocation = _ref$expectedLocation === undefined ? 0 : _ref$expectedLocation,
+      _ref$distance = _ref.distance,
+      distance = _ref$distance === undefined ? 100 : _ref$distance;
+
+  var accuracy = errors / pattern.length;
+  var proximity = Math.abs(expectedLocation - currentLocation);
+
+  if (!distance) {
+    // Dodge divide by zero error.
+    return proximity ? 1.0 : accuracy;
+  }
+
+  return accuracy + proximity / distance;
+};
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var bitapScore = __webpack_require__(6);
+var matchedIndices = __webpack_require__(3);
+
+module.exports = function (text, pattern, patternAlphabet, _ref) {
+  var _ref$location = _ref.location,
+      location = _ref$location === undefined ? 0 : _ref$location,
+      _ref$distance = _ref.distance,
+      distance = _ref$distance === undefined ? 100 : _ref$distance,
+      _ref$threshold = _ref.threshold,
+      threshold = _ref$threshold === undefined ? 0.6 : _ref$threshold,
+      _ref$findAllMatches = _ref.findAllMatches,
+      findAllMatches = _ref$findAllMatches === undefined ? false : _ref$findAllMatches,
+      _ref$minMatchCharLeng = _ref.minMatchCharLength,
+      minMatchCharLength = _ref$minMatchCharLeng === undefined ? 1 : _ref$minMatchCharLeng;
+
+  var expectedLocation = location;
+  // Set starting location at beginning text and initialize the alphabet.
+  var textLen = text.length;
+  // Highest score beyond which we give up.
+  var currentThreshold = threshold;
+  // Is there a nearby exact match? (speedup)
+  var bestLocation = text.indexOf(pattern, expectedLocation);
+
+  var patternLen = pattern.length;
+
+  // a mask of the matches
+  var matchMask = [];
+  for (var i = 0; i < textLen; i += 1) {
+    matchMask[i] = 0;
+  }
+
+  if (bestLocation !== -1) {
+    var score = bitapScore(pattern, {
+      errors: 0,
+      currentLocation: bestLocation,
+      expectedLocation: expectedLocation,
+      distance: distance
+    });
+    currentThreshold = Math.min(score, currentThreshold);
+
+    // What about in the other direction? (speed up)
+    bestLocation = text.lastIndexOf(pattern, expectedLocation + patternLen);
+
+    if (bestLocation !== -1) {
+      var _score = bitapScore(pattern, {
+        errors: 0,
+        currentLocation: bestLocation,
+        expectedLocation: expectedLocation,
+        distance: distance
+      });
+      currentThreshold = Math.min(_score, currentThreshold);
+    }
+  }
+
+  // Reset the best location
+  bestLocation = -1;
+
+  var lastBitArr = [];
+  var finalScore = 1;
+  var binMax = patternLen + textLen;
+
+  var mask = 1 << patternLen - 1;
+
+  for (var _i = 0; _i < patternLen; _i += 1) {
+    // Scan for the best match; each iteration allows for one more error.
+    // Run a binary search to determine how far from the match location we can stray
+    // at this error level.
+    var binMin = 0;
+    var binMid = binMax;
+
+    while (binMin < binMid) {
+      var _score3 = bitapScore(pattern, {
+        errors: _i,
+        currentLocation: expectedLocation + binMid,
+        expectedLocation: expectedLocation,
+        distance: distance
+      });
+
+      if (_score3 <= currentThreshold) {
+        binMin = binMid;
+      } else {
+        binMax = binMid;
+      }
+
+      binMid = Math.floor((binMax - binMin) / 2 + binMin);
+    }
+
+    // Use the result from this iteration as the maximum for the next.
+    binMax = binMid;
+
+    var start = Math.max(1, expectedLocation - binMid + 1);
+    var finish = findAllMatches ? textLen : Math.min(expectedLocation + binMid, textLen) + patternLen;
+
+    // Initialize the bit array
+    var bitArr = Array(finish + 2);
+
+    bitArr[finish + 1] = (1 << _i) - 1;
+
+    for (var j = finish; j >= start; j -= 1) {
+      var currentLocation = j - 1;
+      var charMatch = patternAlphabet[text.charAt(currentLocation)];
+
+      if (charMatch) {
+        matchMask[currentLocation] = 1;
+      }
+
+      // First pass: exact match
+      bitArr[j] = (bitArr[j + 1] << 1 | 1) & charMatch;
+
+      // Subsequent passes: fuzzy match
+      if (_i !== 0) {
+        bitArr[j] |= (lastBitArr[j + 1] | lastBitArr[j]) << 1 | 1 | lastBitArr[j + 1];
+      }
+
+      if (bitArr[j] & mask) {
+        finalScore = bitapScore(pattern, {
+          errors: _i,
+          currentLocation: currentLocation,
+          expectedLocation: expectedLocation,
+          distance: distance
+        });
+
+        // This match will almost certainly be better than any existing match.
+        // But check anyway.
+        if (finalScore <= currentThreshold) {
+          // Indeed it is
+          currentThreshold = finalScore;
+          bestLocation = currentLocation;
+
+          // Already passed `loc`, downhill from here on in.
+          if (bestLocation <= expectedLocation) {
+            break;
+          }
+
+          // When passing `bestLocation`, don't exceed our current distance from `expectedLocation`.
+          start = Math.max(1, 2 * expectedLocation - bestLocation);
+        }
+      }
+    }
+
+    // No hope for a (better) match at greater error levels.
+    var _score2 = bitapScore(pattern, {
+      errors: _i + 1,
+      currentLocation: expectedLocation,
+      expectedLocation: expectedLocation,
+      distance: distance
+    });
+
+    // console.log('score', score, finalScore)
+
+    if (_score2 > currentThreshold) {
+      break;
+    }
+
+    lastBitArr = bitArr;
+  }
+
+  // console.log('FINAL SCORE', finalScore)
+
+  // Count exact matches (those with a score of 0) to be "almost" exact
+  return {
+    isMatch: bestLocation >= 0,
+    score: finalScore === 0 ? 0.001 : finalScore,
+    matchedIndices: matchedIndices(matchMask, minMatchCharLength)
+  };
+};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Bitap = __webpack_require__(1);
+var deepValue = __webpack_require__(2);
+var isArray = __webpack_require__(0);
+
+var Fuse = function () {
+  function Fuse(list, _ref) {
+    var _ref$location = _ref.location,
+        location = _ref$location === undefined ? 0 : _ref$location,
+        _ref$distance = _ref.distance,
+        distance = _ref$distance === undefined ? 100 : _ref$distance,
+        _ref$threshold = _ref.threshold,
+        threshold = _ref$threshold === undefined ? 0.6 : _ref$threshold,
+        _ref$maxPatternLength = _ref.maxPatternLength,
+        maxPatternLength = _ref$maxPatternLength === undefined ? 32 : _ref$maxPatternLength,
+        _ref$caseSensitive = _ref.caseSensitive,
+        caseSensitive = _ref$caseSensitive === undefined ? false : _ref$caseSensitive,
+        _ref$tokenSeparator = _ref.tokenSeparator,
+        tokenSeparator = _ref$tokenSeparator === undefined ? / +/g : _ref$tokenSeparator,
+        _ref$findAllMatches = _ref.findAllMatches,
+        findAllMatches = _ref$findAllMatches === undefined ? false : _ref$findAllMatches,
+        _ref$minMatchCharLeng = _ref.minMatchCharLength,
+        minMatchCharLength = _ref$minMatchCharLeng === undefined ? 1 : _ref$minMatchCharLeng,
+        _ref$id = _ref.id,
+        id = _ref$id === undefined ? null : _ref$id,
+        _ref$keys = _ref.keys,
+        keys = _ref$keys === undefined ? [] : _ref$keys,
+        _ref$shouldSort = _ref.shouldSort,
+        shouldSort = _ref$shouldSort === undefined ? true : _ref$shouldSort,
+        _ref$getFn = _ref.getFn,
+        getFn = _ref$getFn === undefined ? deepValue : _ref$getFn,
+        _ref$sortFn = _ref.sortFn,
+        sortFn = _ref$sortFn === undefined ? function (a, b) {
+      return a.score - b.score;
+    } : _ref$sortFn,
+        _ref$tokenize = _ref.tokenize,
+        tokenize = _ref$tokenize === undefined ? false : _ref$tokenize,
+        _ref$matchAllTokens = _ref.matchAllTokens,
+        matchAllTokens = _ref$matchAllTokens === undefined ? false : _ref$matchAllTokens,
+        _ref$includeMatches = _ref.includeMatches,
+        includeMatches = _ref$includeMatches === undefined ? false : _ref$includeMatches,
+        _ref$includeScore = _ref.includeScore,
+        includeScore = _ref$includeScore === undefined ? false : _ref$includeScore,
+        _ref$verbose = _ref.verbose,
+        verbose = _ref$verbose === undefined ? false : _ref$verbose;
+
+    _classCallCheck(this, Fuse);
+
+    this.options = {
+      location: location,
+      distance: distance,
+      threshold: threshold,
+      maxPatternLength: maxPatternLength,
+      isCaseSensitive: caseSensitive,
+      tokenSeparator: tokenSeparator,
+      findAllMatches: findAllMatches,
+      minMatchCharLength: minMatchCharLength,
+      id: id,
+      keys: keys,
+      includeMatches: includeMatches,
+      includeScore: includeScore,
+      shouldSort: shouldSort,
+      getFn: getFn,
+      sortFn: sortFn,
+      verbose: verbose,
+      tokenize: tokenize,
+      matchAllTokens: matchAllTokens
+    };
+
+    this.setCollection(list);
+  }
+
+  _createClass(Fuse, [{
+    key: 'setCollection',
+    value: function setCollection(list) {
+      this.list = list;
+      return list;
+    }
+  }, {
+    key: 'search',
+    value: function search(pattern) {
+      this._log('---------\nSearch pattern: "' + pattern + '"');
+
+      var _prepareSearchers2 = this._prepareSearchers(pattern),
+          tokenSearchers = _prepareSearchers2.tokenSearchers,
+          fullSearcher = _prepareSearchers2.fullSearcher;
+
+      var _search2 = this._search(tokenSearchers, fullSearcher),
+          weights = _search2.weights,
+          results = _search2.results;
+
+      this._computeScore(weights, results);
+
+      if (this.options.shouldSort) {
+        this._sort(results);
+      }
+
+      return this._format(results);
+    }
+  }, {
+    key: '_prepareSearchers',
+    value: function _prepareSearchers() {
+      var pattern = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+      var tokenSearchers = [];
+
+      if (this.options.tokenize) {
+        // Tokenize on the separator
+        var tokens = pattern.split(this.options.tokenSeparator);
+        for (var i = 0, len = tokens.length; i < len; i += 1) {
+          tokenSearchers.push(new Bitap(tokens[i], this.options));
+        }
+      }
+
+      var fullSearcher = new Bitap(pattern, this.options);
+
+      return { tokenSearchers: tokenSearchers, fullSearcher: fullSearcher };
+    }
+  }, {
+    key: '_search',
+    value: function _search() {
+      var tokenSearchers = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      var fullSearcher = arguments[1];
+
+      var list = this.list;
+      var resultMap = {};
+      var results = [];
+
+      // Check the first item in the list, if it's a string, then we assume
+      // that every item in the list is also a string, and thus it's a flattened array.
+      if (typeof list[0] === 'string') {
+        // Iterate over every item
+        for (var i = 0, len = list.length; i < len; i += 1) {
+          this._analyze({
+            key: '',
+            value: list[i],
+            record: i,
+            index: i
+          }, {
+            resultMap: resultMap,
+            results: results,
+            tokenSearchers: tokenSearchers,
+            fullSearcher: fullSearcher
+          });
+        }
+
+        return { weights: null, results: results };
+      }
+
+      // Otherwise, the first item is an Object (hopefully), and thus the searching
+      // is done on the values of the keys of each item.
+      var weights = {};
+      for (var _i = 0, _len = list.length; _i < _len; _i += 1) {
+        var item = list[_i];
+        // Iterate over every key
+        for (var j = 0, keysLen = this.options.keys.length; j < keysLen; j += 1) {
+          var key = this.options.keys[j];
+          if (typeof key !== 'string') {
+            weights[key.name] = {
+              weight: 1 - key.weight || 1
+            };
+            if (key.weight <= 0 || key.weight > 1) {
+              throw new Error('Key weight has to be > 0 and <= 1');
+            }
+            key = key.name;
+          } else {
+            weights[key] = {
+              weight: 1
+            };
+          }
+
+          this._analyze({
+            key: key,
+            value: this.options.getFn(item, key),
+            record: item,
+            index: _i
+          }, {
+            resultMap: resultMap,
+            results: results,
+            tokenSearchers: tokenSearchers,
+            fullSearcher: fullSearcher
+          });
+        }
+      }
+
+      return { weights: weights, results: results };
+    }
+  }, {
+    key: '_analyze',
+    value: function _analyze(_ref2, _ref3) {
+      var key = _ref2.key,
+          _ref2$arrayIndex = _ref2.arrayIndex,
+          arrayIndex = _ref2$arrayIndex === undefined ? -1 : _ref2$arrayIndex,
+          value = _ref2.value,
+          record = _ref2.record,
+          index = _ref2.index;
+      var _ref3$tokenSearchers = _ref3.tokenSearchers,
+          tokenSearchers = _ref3$tokenSearchers === undefined ? [] : _ref3$tokenSearchers,
+          _ref3$fullSearcher = _ref3.fullSearcher,
+          fullSearcher = _ref3$fullSearcher === undefined ? [] : _ref3$fullSearcher,
+          _ref3$resultMap = _ref3.resultMap,
+          resultMap = _ref3$resultMap === undefined ? {} : _ref3$resultMap,
+          _ref3$results = _ref3.results,
+          results = _ref3$results === undefined ? [] : _ref3$results;
+
+      // Check if the texvaluet can be searched
+      if (value === undefined || value === null) {
+        return;
+      }
+
+      var exists = false;
+      var averageScore = -1;
+      var numTextMatches = 0;
+
+      if (typeof value === 'string') {
+        this._log('\nKey: ' + (key === '' ? '-' : key));
+
+        var mainSearchResult = fullSearcher.search(value);
+        this._log('Full text: "' + value + '", score: ' + mainSearchResult.score);
+
+        if (this.options.tokenize) {
+          var words = value.split(this.options.tokenSeparator);
+          var scores = [];
+
+          for (var i = 0; i < tokenSearchers.length; i += 1) {
+            var tokenSearcher = tokenSearchers[i];
+
+            this._log('\nPattern: "' + tokenSearcher.pattern + '"');
+
+            // let tokenScores = []
+            var hasMatchInText = false;
+
+            for (var j = 0; j < words.length; j += 1) {
+              var word = words[j];
+              var tokenSearchResult = tokenSearcher.search(word);
+              var obj = {};
+              if (tokenSearchResult.isMatch) {
+                obj[word] = tokenSearchResult.score;
+                exists = true;
+                hasMatchInText = true;
+                scores.push(tokenSearchResult.score);
+              } else {
+                obj[word] = 1;
+                if (!this.options.matchAllTokens) {
+                  scores.push(1);
+                }
+              }
+              this._log('Token: "' + word + '", score: ' + obj[word]);
+              // tokenScores.push(obj)
+            }
+
+            if (hasMatchInText) {
+              numTextMatches += 1;
+            }
+          }
+
+          averageScore = scores[0];
+          var scoresLen = scores.length;
+          for (var _i2 = 1; _i2 < scoresLen; _i2 += 1) {
+            averageScore += scores[_i2];
+          }
+          averageScore = averageScore / scoresLen;
+
+          this._log('Token score average:', averageScore);
+        }
+
+        var finalScore = mainSearchResult.score;
+        if (averageScore > -1) {
+          finalScore = (finalScore + averageScore) / 2;
+        }
+
+        this._log('Score average:', finalScore);
+
+        var checkTextMatches = this.options.tokenize && this.options.matchAllTokens ? numTextMatches >= tokenSearchers.length : true;
+
+        this._log('\nCheck Matches: ' + checkTextMatches);
+
+        // If a match is found, add the item to <rawResults>, including its score
+        if ((exists || mainSearchResult.isMatch) && checkTextMatches) {
+          // Check if the item already exists in our results
+          var existingResult = resultMap[index];
+          if (existingResult) {
+            // Use the lowest score
+            // existingResult.score, bitapResult.score
+            existingResult.output.push({
+              key: key,
+              arrayIndex: arrayIndex,
+              value: value,
+              score: finalScore,
+              matchedIndices: mainSearchResult.matchedIndices
+            });
+          } else {
+            // Add it to the raw result list
+            resultMap[index] = {
+              item: record,
+              output: [{
+                key: key,
+                arrayIndex: arrayIndex,
+                value: value,
+                score: finalScore,
+                matchedIndices: mainSearchResult.matchedIndices
+              }]
+            };
+
+            results.push(resultMap[index]);
+          }
+        }
+      } else if (isArray(value)) {
+        for (var _i3 = 0, len = value.length; _i3 < len; _i3 += 1) {
+          this._analyze({
+            key: key,
+            arrayIndex: _i3,
+            value: value[_i3],
+            record: record,
+            index: index
+          }, {
+            resultMap: resultMap,
+            results: results,
+            tokenSearchers: tokenSearchers,
+            fullSearcher: fullSearcher
+          });
+        }
+      }
+    }
+  }, {
+    key: '_computeScore',
+    value: function _computeScore(weights, results) {
+      this._log('\n\nComputing score:\n');
+
+      for (var i = 0, len = results.length; i < len; i += 1) {
+        var output = results[i].output;
+        var scoreLen = output.length;
+
+        var currScore = 1;
+        var bestScore = 1;
+
+        for (var j = 0; j < scoreLen; j += 1) {
+          var weight = weights ? weights[output[j].key].weight : 1;
+          var score = weight === 1 ? output[j].score : output[j].score || 0.001;
+          var nScore = score * weight;
+
+          if (weight !== 1) {
+            bestScore = Math.min(bestScore, nScore);
+          } else {
+            output[j].nScore = nScore;
+            currScore *= nScore;
+          }
+        }
+
+        results[i].score = bestScore === 1 ? currScore : bestScore;
+
+        this._log(results[i]);
+      }
+    }
+  }, {
+    key: '_sort',
+    value: function _sort(results) {
+      this._log('\n\nSorting....');
+      results.sort(this.options.sortFn);
+    }
+  }, {
+    key: '_format',
+    value: function _format(results) {
+      var finalOutput = [];
+
+      if (this.options.verbose) {
+        this._log('\n\nOutput:\n\n', JSON.stringify(results));
+      }
+
+      var transformers = [];
+
+      if (this.options.includeMatches) {
+        transformers.push(function (result, data) {
+          var output = result.output;
+          data.matches = [];
+
+          for (var i = 0, len = output.length; i < len; i += 1) {
+            var item = output[i];
+
+            if (item.matchedIndices.length === 0) {
+              continue;
+            }
+
+            var obj = {
+              indices: item.matchedIndices,
+              value: item.value
+            };
+            if (item.key) {
+              obj.key = item.key;
+            }
+            if (item.hasOwnProperty('arrayIndex') && item.arrayIndex > -1) {
+              obj.arrayIndex = item.arrayIndex;
+            }
+            data.matches.push(obj);
+          }
+        });
+      }
+
+      if (this.options.includeScore) {
+        transformers.push(function (result, data) {
+          data.score = result.score;
+        });
+      }
+
+      for (var i = 0, len = results.length; i < len; i += 1) {
+        var result = results[i];
+
+        if (this.options.id) {
+          result.item = this.options.getFn(result.item, this.options.id)[0];
+        }
+
+        if (!transformers.length) {
+          finalOutput.push(result.item);
+          continue;
+        }
+
+        var data = {
+          item: result.item
+        };
+
+        for (var j = 0, _len2 = transformers.length; j < _len2; j += 1) {
+          transformers[j](result, data);
+        }
+
+        finalOutput.push(data);
+      }
+
+      return finalOutput;
+    }
+  }, {
+    key: '_log',
+    value: function _log() {
+      if (this.options.verbose) {
+        var _console;
+
+        (_console = console).log.apply(_console, arguments);
+      }
+    }
+  }]);
+
+  return Fuse;
+}();
+
+module.exports = Fuse;
+
+/***/ })
+/******/ ]);
+});
+
+});
+
+unwrapExports(fuse);
 
 var Dom_1 = createCommonjsModule(function (module, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -240,6 +1223,8 @@ class DomNotes {
     }
     select(i, b) {
         const kid = this.ePreviews.childNodes[i];
+        if (!kid)
+            return undefined;
         kid.setAttribute('data-selected', String(b));
         return kid;
     }
@@ -256,26 +1241,16 @@ var __importDefault = (commonjsGlobal && commonjsGlobal.__importDefault) || func
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 
+const fuse_js_1 = __importDefault(fuse);
 const DomNotes_1$$1 = __importDefault(DomNotes_1);
 document.addEventListener('DOMContentLoaded', () => {
     const eLeftRoot = document.getElementById('left-root');
     const eRightRoot = document.getElementById('right-root');
     const eDummyInput = document.getElementById('dummy-input');
     const eSearch = document.getElementById('search');
-    const domNotes = new DomNotes_1$$1.default(data);
-    const select = function () {
-        let i = 0;
-        const set = (j) => {
-            domNotes.select(i, false);
-            i = Math.max(0, Math.min(j, data.length - 1));
-            scroll(domNotes.select(i, true));
-        };
-        return {
-            next: () => set(i + 1),
-            prev: () => set(i - 1)
-        };
-    }();
     function scroll(preview) {
+        if (!preview)
+            return;
         function e(q) {
             return document.querySelector(q);
         }
@@ -290,32 +1265,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, 200);
     }
-    function clearSearch() {
-        eSearch.value = '';
-        eDummyInput.focus();
-    }
     document.body.addEventListener('keydown', (e) => {
         if (e.keyCode !== 27)
             return;
         e.preventDefault();
         clearSearch();
-    });
-    document.body.addEventListener('keypress', (e) => {
-        if (e.target === eSearch)
-            return;
-        const actions = {
-            'j': () => {
-                select.next();
-            },
-            'k': () => {
-                select.prev();
-            },
-            '/': () => eSearch.select()
-        };
-        if (!actions.hasOwnProperty(e.key))
-            return;
-        e.preventDefault();
-        actions[e.key]();
     });
     eSearch.addEventListener('keydown', e => {
         const actions = {
@@ -330,11 +1284,56 @@ document.addEventListener('DOMContentLoaded', () => {
         actions[e.keyCode]();
     });
     eSearch.addEventListener('input', util.debounce(e => {
-        console.log('TODO search');
+        doSearch(eSearch.value);
     }, 400));
-    eLeftRoot.appendChild(domNotes.ePreviews);
-    eRightRoot.appendChild(domNotes.eViews);
-    domNotes.select(0, true);
+    let i = 0;
+    let search = data;
+    let dom = new DomNotes_1$$1.default(search);
+    const fuse$$1 = new fuse_js_1.default(Object.values(data), {
+        keys: [
+            { name: 'title', weight: 1 },
+            { name: 'author', weight: 1 },
+            { name: 'src', weight: 0.5 }
+        ]
+    });
+    const clearSearch = () => {
+        eSearch.value = '';
+        eDummyInput.focus();
+        updateDom(data);
+    };
+    const select = (j) => {
+        dom.select(i, false);
+        i = Math.max(0, Math.min(j, search.length - 1));
+        scroll(dom.select(i, true));
+    };
+    const updateDom = (notes) => {
+        search = notes;
+        dom = new DomNotes_1$$1.default(search);
+        eLeftRoot.innerHTML = '';
+        eRightRoot.innerHTML = '';
+        eLeftRoot.appendChild(dom.ePreviews);
+        eRightRoot.appendChild(dom.eViews);
+        select(0);
+    };
+    const next = () => select(i + 1);
+    const prev = () => select(i - 1);
+    const doSearch = (query) => {
+        updateDom(fuse$$1.search(query));
+    };
+    document.body.addEventListener('keypress', (e) => {
+        if (e.target === eSearch)
+            return;
+        const actions = {
+            'j': next,
+            'k': prev,
+            '/': () => eSearch.select()
+        };
+        if (!actions.hasOwnProperty(e.key))
+            return;
+        e.preventDefault();
+        actions[e.key]();
+    });
+    updateDom(data);
 });
 
 });

@@ -1,5 +1,6 @@
 import { types } from "../cli/types";
 import { debounce } from './util';
+import Fuse from 'fuse.js'
 import DomNotes from "./DomNotes";
 
 declare const data: types.Note[]
@@ -9,24 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const eRightRoot = document.getElementById('right-root') as HTMLElement
     const eDummyInput = document.getElementById('dummy-input') as HTMLElement
     const eSearch = document.getElementById('search') as HTMLInputElement
-    const domNotes = new DomNotes(data)
 
-    const select = function () {
-        let i = 0
 
-        const set = (j: number) => {
-            domNotes.select(i, false)
-            i = Math.max(0, Math.min(j, data.length - 1))
-            scroll(domNotes.select(i, true))
-        }
-
-        return {
-            next: () => set(i + 1)
-            , prev: () => set(i - 1)
-        }
-    }()
-
-    function scroll(preview: Element) {
+    function scroll(preview: Element | undefined) {
+        if (!preview) return
         function e(q: string) {
             return document.querySelector(q) as Element
         }
@@ -44,31 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 200)
     }
 
-    function clearSearch() {
-        eSearch.value = ''
-        eDummyInput.focus()
-    }
-
     document.body.addEventListener('keydown', (e: KeyboardEvent) => {
         if (e.keyCode !== 27) return
         e.preventDefault()
         clearSearch()
-    })
-
-    document.body.addEventListener('keypress', (e: KeyboardEvent) => {
-        if (e.target === eSearch) return
-        const actions: { [key: string]: () => void } = {
-            'j': () => {
-                select.next()
-            }
-            , 'k': () => {
-                select.prev()
-            }
-            , '/': () => eSearch.select()
-        }
-        if (!actions.hasOwnProperty(e.key)) return
-        e.preventDefault()
-        actions[e.key]()
     })
 
     eSearch.addEventListener('keydown', e => {
@@ -84,11 +50,60 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     eSearch.addEventListener('input', debounce(e => {
-        console.log('TODO search')
+        doSearch(eSearch.value)
     }, 400))
 
-    eLeftRoot.appendChild(domNotes.ePreviews)
-    eRightRoot.appendChild(domNotes.eViews)
-    domNotes.select(0, true)
+    let i = 0
+    let search = data
+    let dom = new DomNotes(search)
 
+    const fuse = new Fuse(Object.values(data), {
+        keys: [
+            { name: 'title', weight: 1 }
+            , { name: 'author', weight: 1 }
+            , { name: 'src', weight: 0.5 }
+        ]
+    })
+
+    const clearSearch = () => {
+        eSearch.value = ''
+        eDummyInput.focus()
+        updateDom(data)
+    }
+
+    const select = (j: number) => {
+        dom.select(i, false)
+        i = Math.max(0, Math.min(j, search.length - 1))
+        scroll(dom.select(i, true))
+    }
+
+    const updateDom = (notes: types.Note[]) => {
+        search = notes
+        dom = new DomNotes(search)
+        eLeftRoot.innerHTML = ''
+        eRightRoot.innerHTML = ''
+        eLeftRoot.appendChild(dom.ePreviews)
+        eRightRoot.appendChild(dom.eViews)
+        select(0)
+    }
+
+    const next = () => select(i + 1)
+    const prev = () => select(i - 1)
+    const doSearch = (query: string) => {
+        updateDom(fuse.search(query))
+    }
+
+    document.body.addEventListener('keypress', (e: KeyboardEvent) => {
+        if (e.target === eSearch) return
+        const actions: { [key: string]: () => void } = {
+            'j': next
+            , 'k': prev
+            , '/': () => eSearch.select()
+        }
+        if (!actions.hasOwnProperty(e.key)) return
+        e.preventDefault()
+        actions[e.key]()
+    })
+
+    updateDom(data)
 })
