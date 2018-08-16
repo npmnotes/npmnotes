@@ -1,6 +1,6 @@
 # About
 
-npmnotes is a command line note organizer.
+npmnotes is a free and open-source command line note organizer.
 
 ![](npmnotes.gif)
 
