@@ -1,6 +1,7 @@
 # Why?
 
 The motivation to build npmnotes came from this [discussion](https://goo.gl/te4BFv).
+
 Some of the advantages are:
 
 1. You have control over your notes, keep them locally or synchronize them the way you want
