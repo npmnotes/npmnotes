@@ -49,7 +49,6 @@ const toNote = (compiler: types.Compiler) => (file: types.File) => {
         , src: src
         , html: compiler.html(src, ext)
         , time: file.stat.mtime.getTime()
-        , selected: false
     }
 }
 
@@ -162,8 +161,8 @@ function watch(options: Options) {
     )
 }
 
-
 prog
+    .version(require(path.join(__dirname, '..', 'package.json')).version)
     .usage('[options] <source folder> <output folder>')
     .option('-w --watch', 'watch mode - live update every time you write or edit a note')
     .option('-t --title [title]', 'the title of the generated page')

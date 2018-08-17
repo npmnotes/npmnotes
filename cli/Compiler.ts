@@ -1,9 +1,8 @@
 import MarkDownIt from 'markdown-it';
-import path from 'path';
 import Prism from 'prismjs';
-import { types } from './types';
-import { TexDown } from './TexDown';
 import { texDown } from 'texdown';
+import { TexDown } from './TexDown';
+import { types } from './types';
 
 export class Compiler implements types.Compiler {
 

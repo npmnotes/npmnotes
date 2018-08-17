@@ -1,6 +1,6 @@
 {
     "name": "npmnotes",
-    "version": "0.0.4",
+    "version": "0.0.6",
     "description": "npmnotes is a free and open-source command line note organizer.",
     "repository": {
         "git": "https://github.com/npmnotes/npmnotes"
