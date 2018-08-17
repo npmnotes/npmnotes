@@ -1,7 +1,7 @@
+import Fuse from 'fuse.js';
 import { types } from "../cli/types";
-import { debounce } from './util';
-import Fuse from 'fuse.js'
 import DomNotes from "./DomNotes";
+import { debounce } from './util';
 
 declare const data: types.Note[]
 
@@ -50,7 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     eSearch.addEventListener('input', debounce(e => {
-        doSearch(eSearch.value)
+        const query = eSearch.value
+        if (!query) updateDom(data)
+        else doSearch(eSearch.value)
     }, 400))
 
     let i = 0
