@@ -38,7 +38,8 @@
   padding: 1em 0;
   line-height: 1.5em;
   opacity: .5;
-  border: .2em solid transparent; }
+  border: .2em solid transparent;
+  cursor: pointer; }
 
 .note-view {
   padding: 10vh 0;
@@ -1197,11 +1198,15 @@ var DomNotes_1 = createCommonjsModule(function (module, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 
 class DomNotes {
-    constructor(notes) {
+    constructor(notes, onClickPreview) {
         this.ePreviews = Dom_1.Dom.createElement("div", null);
         this.eViews = Dom_1.Dom.createElement("div", null);
-        notes.forEach(note => {
-            this.ePreviews.appendChild(this.ePreview(note));
+        notes.forEach((note, i) => {
+            const ePreview = this.ePreview(note);
+            ePreview.addEventListener('click', () => {
+                onClickPreview(i, note);
+            });
+            this.ePreviews.appendChild(ePreview);
             this.eViews.appendChild(this.eView(note));
         });
     }
@@ -1305,7 +1310,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 400));
     let i = 0;
     let search = data;
-    let dom = new DomNotes_1$$1.default(search);
+    let dom = new DomNotes_1$$1.default(search, select);
     const fuse$$1 = new fuse_js_1.default(Object.values(data), {
         keys: [
             { name: 'title', weight: 1 },
@@ -1318,14 +1323,14 @@ document.addEventListener('DOMContentLoaded', () => {
         eDummyInput.focus();
         updateDom(data);
     };
-    const select = (j) => {
+    function select(j, note) {
         dom.select(i, false);
         i = Math.max(0, Math.min(j, search.length - 1));
         scroll(dom.select(i, true));
-    };
+    }
     const updateDom = (notes) => {
         search = notes;
-        dom = new DomNotes_1$$1.default(search);
+        dom = new DomNotes_1$$1.default(search, select);
         eLeftRoot.innerHTML = '';
         eRightRoot.innerHTML = '';
         eLeftRoot.appendChild(dom.ePreviews);

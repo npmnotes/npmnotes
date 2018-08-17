@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let i = 0
     let search = data
-    let dom = new DomNotes(search)
+    let dom = new DomNotes(search, select)
 
     const fuse = new Fuse(Object.values(data), {
         keys: [
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDom(data)
     }
 
-    const select = (j: number) => {
+    function select(j: number, note?: types.Note) {
         dom.select(i, false)
         i = Math.max(0, Math.min(j, search.length - 1))
         scroll(dom.select(i, true))
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateDom = (notes: types.Note[]) => {
         search = notes
-        dom = new DomNotes(search)
+        dom = new DomNotes(search, select)
         eLeftRoot.innerHTML = ''
         eRightRoot.innerHTML = ''
         eLeftRoot.appendChild(dom.ePreviews)

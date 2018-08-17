@@ -28,9 +28,16 @@ export default class DomNotes {
         return view
     }
 
-    constructor(notes: types.Note[]) {
-        notes.forEach(note => {
-            this.ePreviews.appendChild(this.ePreview(note))
+    constructor(
+        notes: types.Note[]
+        , onClickPreview: (i: number, note: types.Note) => void
+    ) {
+        notes.forEach((note, i) => {
+            const ePreview = this.ePreview(note)
+            ePreview.addEventListener('click', () => {
+                onClickPreview(i, note)
+            })
+            this.ePreviews.appendChild(ePreview)
             this.eViews.appendChild(this.eView(note))
         })
     }
