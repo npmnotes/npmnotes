@@ -1,7 +1,11 @@
 {
     "name": "npmnotes",
     "version": "0.0.4",
-    "description": "",
+    "description": "npmnotes is a free and open-source command line note organizer.",
+    "repository": {
+        "git": "https://github.com/npmnotes/npmnotes"
+    },
+    "homepage": "https://npmnotes.org/",
     "main": "",
     "author": "Gilad Kutiel",
     "license": "ISC",
