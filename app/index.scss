@@ -7,6 +7,7 @@
 // KATEX
 @import url("https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css");
 // 
+@import 'layout';
 @import 'search-box';
 @import 'note';
 @import 'color';
@@ -16,45 +17,15 @@
     box-sizing: border-box;
 }
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-}
-
 body {
     color: $color-body;
     font-family: 'Work Sans', sans-serif;
     font-size: 1.1em;
 }
 
-input#search {
-    display: block;
-}
-
-html,
-body,
-#main {
-    height: 100%;
-    overflow: hidden;
-}
-
-#left {
-    height: 100%;
-    padding: 1em;
-    padding-bottom: 0;
-    min-width: 25em;
-}
-
 .scroll {
     overflow-y: scroll;
     overflow-x: hidden;
-}
-
-#right-root {
-    padding: 3em;
 }
 
 table,

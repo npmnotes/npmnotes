@@ -33,15 +33,15 @@ export default function html(data: {
 <input id='dummy-input' type="text">
 
 
-<div id='main' class='row'>
-    <div id='left' class='column'>
+<div id='grid'>
+    <div id='search'>
         <div id='search-box' class='row'>
             <i class='fa fa-search flex-align-center'></i>
-            <input id='search' type="search" class='flex-grow' />
+            <input id='search-input' type="search" class='flex-grow' />
         </div>
-        <div id='left-root' class='flex-grow scroll'></div>
     </div>
-    <div id='right-root' class='flex-grow scroll'></div>
+    <div id='preview' class='scroll'></div>
+    <div id='view' class='scroll'></div>
 </div>
 
 </body>

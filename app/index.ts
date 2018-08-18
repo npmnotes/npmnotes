@@ -6,10 +6,10 @@ import { debounce } from './util';
 declare const data: types.Note[]
 
 document.addEventListener('DOMContentLoaded', () => {
-    const eLeftRoot = document.getElementById('left-root') as HTMLElement
-    const eRightRoot = document.getElementById('right-root') as HTMLElement
+    const ePreview = document.getElementById('preview') as HTMLElement
+    const eView = document.getElementById('view') as HTMLElement
     const eDummyInput = document.getElementById('dummy-input') as HTMLElement
-    const eSearch = document.getElementById('search') as HTMLInputElement
+    const eSearchInput = document.getElementById('search-input') as HTMLInputElement
 
 
     function scroll(preview: Element | undefined) {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearSearch()
     })
 
-    eSearch.addEventListener('keydown', e => {
+    eSearchInput.addEventListener('keydown', e => {
         const actions: { [keyCode: number]: () => void } = {
             13: () => {
                 eDummyInput.focus()
@@ -49,10 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
         actions[e.keyCode]()
     })
 
-    eSearch.addEventListener('input', debounce(e => {
-        const query = eSearch.value
+    eSearchInput.addEventListener('input', debounce(e => {
+        const query = eSearchInput.value
         if (!query) updateDom(data)
-        else doSearch(eSearch.value)
+        else doSearch(eSearchInput.value)
     }, 400))
 
     let i = 0
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     const clearSearch = () => {
-        eSearch.value = ''
+        eSearchInput.value = ''
         eDummyInput.focus()
         updateDom(data)
     }
@@ -82,10 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateDom = (notes: types.Note[]) => {
         search = notes
         dom = new DomNotes(search, select)
-        eLeftRoot.innerHTML = ''
-        eRightRoot.innerHTML = ''
-        eLeftRoot.appendChild(dom.ePreviews)
-        eRightRoot.appendChild(dom.eViews)
+        ePreview.innerHTML = ''
+        eView.innerHTML = ''
+        ePreview.appendChild(dom.ePreviews)
+        eView.appendChild(dom.eViews)
         select(0)
     }
 
@@ -96,11 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.body.addEventListener('keypress', (e: KeyboardEvent) => {
-        if (e.target === eSearch) return
+        if (e.target === eSearchInput) return
         const actions: { [key: string]: () => void } = {
             'j': next
             , 'k': prev
-            , '/': () => eSearch.select()
+            , '/': () => eSearchInput.select()
         }
         if (!actions.hasOwnProperty(e.key)) return
         e.preventDefault()

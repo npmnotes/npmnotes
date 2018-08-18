@@ -19,13 +19,49 @@
 @import url("https://use.fontawesome.com/releases/v5.2.0/css/all.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-tomorrow.min.css");
 @import url("https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css");
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0; }
+
+#grid {
+  padding: .2em;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 22em auto;
+  grid-template-rows: 3em auto;
+  grid-column-gap: .3em; }
+
+#search {
+  grid-column-start: 1;
+  align-self: center; }
+
+#preview {
+  grid-column-start: 1; }
+
+#view {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: span 2; }
+
+@media (max-width: 820px) {
+  #preview {
+    display: none; }
+  #search {
+    grid-column-start: 1;
+    grid-column-end: span 2; }
+  #view {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 2; } }
+
 #search-box {
   border: 1px solid #D8DEE9;
   border-radius: .2em;
   background-color: white;
   padding: .2em;
-  margin-bottom: 1em;
-  flex-shrink: 0;
   font-size: 1.2em; }
   #search-box input {
     border: none;
@@ -42,7 +78,7 @@
   cursor: pointer; }
 
 .note-view {
-  padding: 10vh 0;
+  padding: 10vh 1em;
   max-width: 45em; }
 
 .note-title {
@@ -108,39 +144,14 @@ th {
 * {
   box-sizing: border-box; }
 
-html,
-body {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0; }
-
 body {
   color: #343D46;
   font-family: 'Work Sans', sans-serif;
   font-size: 1.1em; }
 
-input#search {
-  display: block; }
-
-html,
-body,
-#main {
-  height: 100%;
-  overflow: hidden; }
-
-#left {
-  height: 100%;
-  padding: 1em;
-  padding-bottom: 0;
-  min-width: 25em; }
-
 .scroll {
   overflow-y: scroll;
   overflow-x: hidden; }
-
-#right-root {
-  padding: 3em; }
 
 table,
 pre {
@@ -1262,10 +1273,10 @@ const fuse_js_1 = __importDefault(fuse);
 const DomNotes_1$$1 = __importDefault(DomNotes_1);
 
 document.addEventListener('DOMContentLoaded', () => {
-    const eLeftRoot = document.getElementById('left-root');
-    const eRightRoot = document.getElementById('right-root');
+    const ePreview = document.getElementById('preview');
+    const eView = document.getElementById('view');
     const eDummyInput = document.getElementById('dummy-input');
-    const eSearch = document.getElementById('search');
+    const eSearchInput = document.getElementById('search-input');
     function scroll(preview) {
         if (!preview)
             return;
@@ -1289,7 +1300,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         clearSearch();
     });
-    eSearch.addEventListener('keydown', e => {
+    eSearchInput.addEventListener('keydown', e => {
         const actions = {
             13: () => {
                 eDummyInput.focus();
@@ -1301,12 +1312,12 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         actions[e.keyCode]();
     });
-    eSearch.addEventListener('input', util.debounce(e => {
-        const query = eSearch.value;
+    eSearchInput.addEventListener('input', util.debounce(e => {
+        const query = eSearchInput.value;
         if (!query)
             updateDom(data);
         else
-            doSearch(eSearch.value);
+            doSearch(eSearchInput.value);
     }, 400));
     let i = 0;
     let search = data;
@@ -1319,7 +1330,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     });
     const clearSearch = () => {
-        eSearch.value = '';
+        eSearchInput.value = '';
         eDummyInput.focus();
         updateDom(data);
     };
@@ -1331,10 +1342,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateDom = (notes) => {
         search = notes;
         dom = new DomNotes_1$$1.default(search, select);
-        eLeftRoot.innerHTML = '';
-        eRightRoot.innerHTML = '';
-        eLeftRoot.appendChild(dom.ePreviews);
-        eRightRoot.appendChild(dom.eViews);
+        ePreview.innerHTML = '';
+        eView.innerHTML = '';
+        ePreview.appendChild(dom.ePreviews);
+        eView.appendChild(dom.eViews);
         select(0);
     };
     const next = () => select(i + 1);
@@ -1343,12 +1354,12 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDom(fuse$$1.search(query));
     };
     document.body.addEventListener('keypress', (e) => {
-        if (e.target === eSearch)
+        if (e.target === eSearchInput)
             return;
         const actions = {
             'j': next,
             'k': prev,
-            '/': () => eSearch.select()
+            '/': () => eSearchInput.select()
         };
         if (!actions.hasOwnProperty(e.key))
             return;
@@ -1367,15 +1378,15 @@ export default index;
 <input id='dummy-input' type="text">
 
 
-<div id='main' class='row'>
-    <div id='left' class='column'>
+<div id='grid'>
+    <div id='search'>
         <div id='search-box' class='row'>
             <i class='fa fa-search flex-align-center'></i>
-            <input id='search' type="search" class='flex-grow' />
+            <input id='search-input' type="search" class='flex-grow' />
         </div>
-        <div id='left-root' class='flex-grow scroll'></div>
     </div>
-    <div id='right-root' class='flex-grow scroll'></div>
+    <div id='preview' class='scroll'></div>
+    <div id='view' class='scroll'></div>
 </div>
 
 </body>
