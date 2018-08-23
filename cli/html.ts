@@ -25,7 +25,7 @@ export default function html(data: {
 <meta property="og:description" content="${data.title} - built with npmnotes" />
 
 <style>${data.css}</style>
-<script>const data = ${JSON.stringify(data.notes)}</script>
+<script>var data = ${JSON.stringify(data.notes)}</script>
 </head>
 
 <body>
